@@ -1,0 +1,466 @@
+@import "../../mixins";
+
+
+.successDiv {
+  width: 100%;
+  color: #3C763D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    @include regular-md;
+    line-height: 19.2px;
+  }
+}
+
+
+.hiddenServiceInput {
+  display: none;
+}
+
+.itemTemplate {
+  width: 10rem !important;
+  @include regular-md;
+  font-size: var(--fontsizemd);
+  font-weight: 400 !important;
+  line-height: 19.2px;
+  color: var(--black-font-color);
+  padding-top: .5rem;
+  transition: .5s;
+
+  text-align: left;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  overflow-wrap: break-word; 
+  word-wrap: break-word;     
+  white-space: normal;      
+
+  &:hover {
+    color: var(--orange-color);
+  }
+}
+
+
+
+
+.panelWrapper{
+  height: auto;
+  padding: var(--spacing-150) var(--spacing-200) var(--spacing-150) var(--spacing-200);
+  gap: var(--spacing-200);
+  border-radius: 6px;
+  border: 1px solid #AFA09D;
+  background-color: var(--white-color) !important;
+
+  display: flex;
+  flex-direction: column;
+
+  ::-webkit-scrollbar {
+    width: .5rem;
+  }
+
+    ::-webkit-scrollbar-thumb {
+    background-color: var(--light-yellow-color);
+  }
+}
+
+.contactWrapper {
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .internWrapper{
+        width: 100%;
+        background-color: var(--light-yellow-color);
+        padding: var(--padding-wrap);
+        .formWrapper{
+            width: var(--page-wrapper);
+            margin: 0 auto;
+            padding: 4rem 0rem 0rem 0rem;
+            max-width: var(--max-width);
+            height: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--spacing-1000);
+            .wrapperSocialTitle{
+                width: 50%;
+                min-height: 650px;
+                display: flex;
+                flex-direction: column;
+                gap: var(--spacing-600);
+                .titleDiv{
+                    display: flex;
+                    flex-direction: column;
+                    gap: var(--spacing-300);
+
+                    .socialMedia{
+                      display: flex;
+                      align-items: center;
+                      gap: var(--spacing-100);
+                      img{
+                        transition: .5s;
+                      }
+                    }
+
+                    h1{
+                        @include bold-5xl;
+                        font-weight: 600 !important;
+                        line-height: 57.6px;
+                        text-align: left;
+                    }
+                    p{
+                        width: 80%;
+                        @include regular-2xl;
+                        font-weight: 300 !important;
+                        line-height: 28.8px;
+                        text-align: left;
+
+                    }
+                }
+            }
+            .formDiv{
+                width: 50%;
+                min-height: 650px;
+                display: flex;
+                flex-direction: column;
+
+                .contactForm{
+                    width: 100%;
+                    padding: var(--spacing-400) var(--spacing-400) var(--spacing-800) var(--spacing-400);
+                    height: auto;
+                    gap: 17px;
+                    background-color: var(--white-color);
+                    border-radius: 6px;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+
+                    label p {
+                      margin-bottom: var(--spacing-100);
+                    }
+
+                    .submitButton{
+                      width: 100%;
+                      height: 48px;
+                      padding: 10px 24px 10px 24px;
+                      gap: 10px;
+                      border-radius: var(--spacing-100);
+                      outline: none;
+                      border: none;
+                      background-color: var(--yellow-color);
+                      cursor: pointer;
+                      transition: 1s;
+
+                      &:hover{
+                        background-color: darken(#F4C116, 10%);
+                      }
+
+                      @include medium-lg;
+                      color: var(--black-font-color);
+
+
+                    }
+
+                    .wrapperMoreInputs{
+                      width: 100%;
+                      
+                      display: flex;
+                      align-items: flex-start;
+                      gap: 17px;
+
+                      label{
+                        max-width: 50% !important;
+                        width: 50%;
+                      }
+
+                      .dropdown{
+                        width: 100%;
+                        height: 44px;
+                        padding: 10px var(--spacing-200) 10px var(--spacing-200);
+
+                        outline: none;
+                        border: none;
+                        border-radius: 6px;
+                        border: 1px solid #AFA09D;
+                        background-color: transparent;
+
+                        [class~="p-dropdown-items"] {
+  
+                          background: black !important;
+                        }
+
+
+                        //styleName: body/regular/md;
+                        p{
+                          @include regular-md;
+                          font-weight: 400 !important;
+                          text-align: left;
+                          color: var(--black-font-color);
+                        }
+
+                      }
+                    }
+
+                    label{
+                      width: 100%;
+                      display: flex;
+                      flex-direction: column;
+
+                      .error{
+                        color: rgb(156, 11, 11);
+                        span{
+                          @include medium-lg;
+  
+                        }
+                      }
+                      .fieldError{
+                        border: 1px solid rgb(156, 11, 11) !important;
+                      }
+
+                      input{
+                        width: 100%;
+                        height: 44px;
+                        padding: 10px var(--spacing-200) 10px var(--spacing-200);
+
+                        outline: none;
+                        border: none;
+                        border-radius: 6px;
+                        border: 1px solid #AFA09D;
+                        background-color: transparent;
+
+                        //styleName: body/regular/md;
+                        @include regular-md;
+                        font-weight: 400 !important;
+                        text-align: left;
+                        color: var(--black-font-color);
+
+                        &::placeholder{
+                          color: #AFA09D;
+                        }
+                      }
+
+                      textarea{
+                        resize: none;
+                        width: 100%;
+                        height: 80px;
+                        padding: 10px var(--spacing-200) 10px var(--spacing-200);
+
+                        outline: none;
+                        border: none;
+                        border-radius: 6px;
+                        border: 1px solid #AFA09D;
+                        background-color: transparent;
+
+                        //styleName: body/regular/md;
+                        @include regular-md;
+                        font-weight: 400 !important;
+                        text-align: left;
+                        color: var(--black-font-color);
+
+                        &::placeholder{
+                          color: #AFA09D;
+                        }
+                      }
+                    textarea::-webkit-scrollbar {
+                        width: .5rem;
+                    }
+                    
+                    textarea::-webkit-scrollbar-thumb {
+                      background-color: var(--light-yellow-color);
+                    }
+
+                      p{
+                        @include medium-lg;
+                        line-height: var(--fontline-heightlg);
+
+                      }
+                    }
+                }
+            }
+
+
+            color: var(--black-font-color); 
+        }
+    }
+    
+    .internMapWrapper{
+      width: 100%;
+      height: auto;
+      background-color: var(--white-color);
+      padding: var(--padding-wrap);
+
+      .mapWrapper{
+        gap: var(--spacing-400);
+        width: var(--page-wrapper);
+        margin: 0 auto;
+        max-width: var(--max-width);
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .mapDiv{
+          color: blue;
+          width: 50%;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .textMapDiv{
+          color: var(--black-font-color);
+          width: 50%;
+
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+
+          .addressWrapper{
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-400);
+
+            h2{
+              @include medium-4xl;
+              font-weight: 500 !important;
+              @media screen and (max-width: 750px) {
+                @include medium-2xl;
+              }
+            }
+          }
+          .addressText{
+            span{
+              font-size: 24px;
+              font-weight: 500 !important;
+              line-height: 28.8px;
+              @media screen and (max-width: 750px) {
+                font-size: 20px;
+              }
+            }
+            p{
+              font-size: 24px;
+              font-weight: 400 !important;
+              line-height: 28.8px;
+              @media screen and (max-width: 750px) {
+                font-size: 20px;
+              }
+            }
+          }
+          .phoneDiv{
+            @include regular-2xl;
+            @media screen and (max-width: 750px) {
+              @include regular-xl;
+            }
+          }
+        }
+      }
+    }
+
+
+}
+
+@media screen and (max-width: 1150px) {
+  
+  .contactWrapper {
+      height: auto !important;
+      .internWrapper{
+        
+          .formWrapper{
+              padding: 3.5rem 0rem 0rem 0rem;
+              justify-content: center;
+              gap: var(--spacing-400);
+              flex-direction: column;
+              .wrapperSocialTitle{
+                  width: 100%;
+                  min-height: 0;
+                  gap: var(--spacing-150);
+                  .titleDiv{
+                      display: flex;
+                      flex-direction: column;
+                      gap: var(--spacing-150);
+  
+                      h1{
+                        font-size: 32px;
+                        font-weight: 600 !important;
+                        line-height: 38.4px;
+                        
+                      }
+                      p{
+                        font-size: 14px;
+                        font-weight: 300 !important;
+                        line-height: 16.8px;
+                        text-align: left;
+                        
+  
+                      }
+                  }
+              }
+              .formDiv{
+                  width: 100%;
+                  min-height: 650px;
+                  .contactForm {
+                      padding:var(--spacing-400) var(--spacing-200);
+                      .submitButton{
+                        width: 100%;
+                        height: 48px;
+                        padding: 10px 24px 10px 24px;
+                        gap: 10px;
+                        border-radius: var(--spacing-100);
+                        outline: none;
+                        border: none;
+                        background-color: var(--yellow-color);
+                        cursor: pointer;
+                        transition: 1s;
+  
+                        &:hover{
+                          background-color: darken(#F4C116, 10%);
+                        }
+  
+                        @include medium-lg;
+                        color: var(--black-font-color);
+  
+  
+                      }
+  
+                      .wrapperMoreInputs{
+                        flex-direction: column;
+  
+                        label{
+                          max-width: 100% !important;
+                          width: 100%;
+                        }
+  
+                      }
+
+                  }
+              }
+  
+  
+              color: var(--black-font-color); 
+          }
+      }
+      
+      .internMapWrapper{
+  
+        .mapWrapper{
+          flex-direction: column;
+          gap: var(--spacing-400);
+          .mapDiv{
+            width: 100%;
+          
+          }
+        }
+      }
+  
+  
+  }
+  
+}

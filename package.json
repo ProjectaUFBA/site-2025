@@ -1,0 +1,36 @@
+{
+  "name": "projecta-site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "slicemachine": "start-slicemachine"
+  },
+  "dependencies": {
+    "@prismicio/client": "^7.4.1",
+    "@prismicio/next": "^1.5.0",
+    "@prismicio/react": "^2.7.4",
+    "@react-google-maps/api": "^2.19.3",
+    "axios": "^1.7.2",
+    "formik": "^2.4.6",
+    "next": "^14.2.15",
+    "primereact": "^10.7.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "sass": "^1.75.0",
+    "yup": "^1.4.0"
+  },
+  "devDependencies": {
+    "@slicemachine/adapter-next": "^0.3.38",
+    "@types/node": "^20",
+    "@types/react": "^18.2.8",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "slice-machine-ui": "^1.26.0",
+    "typescript": "^5.1.3"
+  }
+}

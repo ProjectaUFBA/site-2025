@@ -1,0 +1,31 @@
+@import "../../mixins";
+
+.pageIntroduction {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing-600);
+  text-align: center;
+  gap: var(--spacing-300);
+
+  .sectionTitle {
+    @include medium-3xl();
+    color: var(--dark-yellow-font-color);
+  }
+
+  .prismicIntro {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-150);
+
+    .mainTitle * {
+      @include medium-5xl();
+      font-weight: 400;
+    }
+
+    .subTitle * {
+      @include regular-2xl();
+      color: var(--grey-font-color);
+    }
+  }
+}

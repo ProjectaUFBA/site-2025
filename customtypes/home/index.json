@@ -1,0 +1,201 @@
+{
+  "format": "page",
+  "id": "home",
+  "label": "Home",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "whiteTitleText": {
+        "type": "Text",
+        "config": {
+          "label": "Texto Branco no Título",
+          "placeholder": "Texto Branco no Título"
+        }
+      },
+      "yellowTitleText": {
+        "type": "Text",
+        "config": {
+          "label": "Texto Amarelo no Título",
+          "placeholder": "Texto Amarelo no Título"
+        }
+      },
+      "heroDescription": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Descrição Hero",
+          "placeholder": "Descrição Hero",
+          "allowTargetBlank": false,
+          "multi": "paragraph"
+        }
+      },
+      "heroImage1": {
+        "type": "Image",
+        "config": {
+          "label": "Imagem Hero 1",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "servicesTitle": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Título Serviços",
+          "placeholder": "Título Serviços",
+          "allowTargetBlank": false,
+          "single": "heading1"
+        }
+      },
+      "servicesDescription": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Descrição Serviços",
+          "placeholder": "Descrição Serviços",
+          "allowTargetBlank": false,
+          "multi": "paragraph"
+        }
+      },
+      "metodologyTitle": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Título de Metodologia",
+          "placeholder": "Título Metodologia",
+          "allowTargetBlank": false,
+          "single": "heading1"
+        }
+      },
+      "metodologyDescription": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Descrição de Metodologia",
+          "placeholder": "Descrição Metodologia",
+          "allowTargetBlank": false,
+          "multi": "paragraph"
+        }
+      },
+      "metodologyAsideText": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Texto do Lado de Metodologia",
+          "placeholder": "Texto do Lado de Metodologia",
+          "allowTargetBlank": false,
+          "single": "paragraph"
+        }
+      },
+      "portfolioTitle": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Título Portfólio",
+          "placeholder": "Título Portfólio",
+          "allowTargetBlank": false,
+          "single": "heading1"
+        }
+      },
+      "portfolioDescription": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Descrição Portfólio",
+          "placeholder": "Descrição Portfólio",
+          "allowTargetBlank": false,
+          "multi": "paragraph"
+        }
+      },
+      "aboutUsTitle": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Título Quem Somos",
+          "placeholder": "Título Quem Somos",
+          "allowTargetBlank": false,
+          "single": "heading1"
+        }
+      },
+      "aboutUsDescription": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Descrição Quem Somos",
+          "placeholder": "Descrição Quem Somos",
+          "allowTargetBlank": false,
+          "multi": "paragraph"
+        }
+      },
+      "aboutUsImage": {
+        "type": "Image",
+        "config": {
+          "label": "Imagem Quem Somos",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "callToActionTitle": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Título Call to Action",
+          "placeholder": "Título Call to Action",
+          "allowTargetBlank": false,
+          "single": "heading1"
+        }
+      },
+      "callToActionDescription": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Descrição Call to Action",
+          "placeholder": "Descrição Call to Action",
+          "allowTargetBlank": false,
+          "multi": "paragraph"
+        }
+      },
+      "callToActionLogo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo Encurtada Call to Action",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "metodology_cards": {
+              "type": "SharedSlice"
+            },
+            "about_us_item": {
+              "type": "SharedSlice"
+            },
+            "services_slices": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      }
+    }
+  }
+}

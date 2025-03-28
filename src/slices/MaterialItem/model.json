@@ -1,0 +1,53 @@
+{
+  "id": "material_item",
+  "type": "SharedSlice",
+  "name": "MaterialItem",
+  "description": "MaterialItem",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "materialTitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Título do Material",
+            "placeholder": "Título do Material",
+            "allowTargetBlank": false,
+            "single": "heading2"
+          }
+        },
+        "materialDescription": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Descrição do Material",
+            "placeholder": "Descrição do Material",
+            "allowTargetBlank": false,
+            "multi": "paragraph"
+          }
+        },
+        "materialImage": {
+          "type": "Image",
+          "config": {
+            "label": "Imagem do Material",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "materialLink": {
+          "type": "Link",
+          "config": {
+            "label": "Documento em si",
+            "placeholder": "",
+            "select": "media"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

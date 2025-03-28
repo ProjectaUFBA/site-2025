@@ -1,0 +1,13 @@
+@import '../mixins';
+
+.blogPage {
+    padding: var(--padding-wrap);
+    padding-top: 6rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white-color);
+    color: var(--black-font-color);
+}

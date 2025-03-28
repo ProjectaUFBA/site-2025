@@ -1,0 +1,235 @@
+@import '../../mixins';
+
+.mainWrapper{
+  width: 100%;
+  height: auto;
+
+  background-color: #1D1C1C;
+  color: #FFFFFF;
+}
+.wrapper{
+  width: var(--page-wrapper);
+  padding: var(--padding-wrap);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1000);
+
+  .title{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-200);
+
+    h1{
+      @include medium-5xl;
+    }
+    p{
+      width: 50%;
+      @include regular-2xl;
+      font-weight: 300 !important;
+    }
+  }
+  .titleAndPagination{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .paginationWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-150);
+
+    img{
+      cursor: pointer;
+    }
+
+    .rightArrow{
+      transform: rotate(180deg);
+    }
+  }
+  .contact{
+    width: 100%;
+    height: auto;
+    padding: var(--spacing-500) var(--spacing-800) var(--spacing-500) var(--spacing-800);
+    background-color: var(--yellow-color);
+    border-radius: 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    p{
+      width: 30%;
+      @include medium-3xl;
+      color: var(--black-font-color);
+    
+    }
+    div{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-300);
+    }
+    button{
+      @include medium-2xl;
+      width: 250px;
+      height: 69px;
+      border-radius: 6px;
+      outline: none;
+      border: none;
+      background-color: var(--white-font-color);
+      color: var(--black-font-color);
+      padding: var(--spacing-250) var(--spacing-400) var(--spacing-250) var(--spacing-400);
+      cursor: pointer;
+      transition: 1s;
+
+      &:hover{
+        background-color: darken(#fff, 15%);
+      }
+    }
+  }
+  .slices{
+    width: auto;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+    overflow-x: scroll;
+    display: flex;
+    
+    gap: var(--spacing-300);
+
+    .wrapperEachStatement{
+      min-width: 489px !important;
+      min-height: 262px !important;
+      padding: var(--spacing-250) var(--spacing-300) var(--spacing-250) var(--spacing-300);
+      background-color: #FFF;
+      border-radius: 6px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--spacing-300);
+      .descriptionStatement{
+        @include regular-md;
+        color: #0D0C0C;
+        line-height: 19.2px !important;
+      }
+      .clientPhotoWrapper{
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-100);
+
+        .titlePhotoWrapper{
+          display: flex;
+          flex-direction: column;
+          gap: var(--spacing-25);
+
+          .nameClient{
+            @include bold-xs;
+            color: #0D0C0C;
+          }
+          .roleClient{
+            @include regular-xs;
+            color: #0D0C0C;
+          }
+        }
+      }
+    }
+
+  }
+  .paginationWrapperMobile{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1050px){
+  .paginationWrapperMobile{
+    margin-top: -1rem;
+    display: flex !important;
+    align-items: center;
+    gap: var(--spacing-150);
+    
+    img{
+      cursor: pointer;
+    }
+
+    .rightArrow{
+      transform: rotate(180deg);
+    }
+  }
+  .wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  
+    .title{
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-100);
+  
+      h1{
+        font-size: 32px;
+        line-height: 38.4px;
+      }
+      p{
+        width: 100%;
+        font-size: 1rem !important;
+        line-height: 19.2px;
+        font-weight: 300 !important;
+      }
+    }
+    .paginationWrapper{
+      display: none;
+    }
+    .contact{
+      padding: 1rem;
+      background-color: var(--yellow-color);
+  
+      flex-direction: column;
+      gap: var(--spacing-150);
+      p{
+        width: 100%;
+        @include medium-xl;
+        color: var(--white-font-color);
+        text-align: center;
+      
+      }
+      div{
+        flex-direction: column;
+        gap: var(--spacing-150);
+
+        img{
+          width: 30px;
+          height: 30px;
+          transform: rotate(90deg);
+        }
+      }
+      button{
+        @include medium-md;
+        width: 162px;
+        height: 45px;
+
+        padding: var(--spacing-150) var(--spacing-250) var(--spacing-150) var(--spacing-250);
+      }
+    }
+    .slices{
+      gap: var(--spacing-200);
+  
+      .wrapperEachStatement{
+        min-width: 296px !important;
+        min-height: 262px !important;
+        padding: var(--spacing-200) var(--spacing-300) var(--spacing-200) var(--spacing-300);
+
+        gap: var(--spacing-200);
+        .descriptionStatement{
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 14.4px;
+        }
+      }
+  
+    }
+  }
+}

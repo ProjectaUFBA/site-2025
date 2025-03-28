@@ -1,0 +1,43 @@
+{
+  "id": "social_media_contact_page",
+  "type": "SharedSlice",
+  "name": "SocialMediaContactPage",
+  "description": "SocialMediaContactPage",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "linkImageNormal": {
+          "type": "Image",
+          "config": {
+            "label": "Imagem do Link (Normal)",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "linkImageHover": {
+          "type": "Image",
+          "config": {
+            "label": "Imagem do Link (Hover)",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link para Redirecionamento",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

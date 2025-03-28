@@ -1,0 +1,38 @@
+{
+  "format": "custom",
+  "id": "globalNavbar",
+  "label": "Barra de Navegação",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "navbarLogo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo Escura Navbar",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "navbarLogoLight": {
+        "type": "Image",
+        "config": {
+          "label": "Logo Clara Navbar",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "footer_link": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

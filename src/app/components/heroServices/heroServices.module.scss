@@ -1,0 +1,143 @@
+@import '../../mixins';
+
+.servicesWrapper{
+  width: 100%;
+  padding: var(--padding-wrap);
+
+  background-color: var(--white-color);
+}
+.servicesIntern{
+  width: var(--page-wrapper);
+  max-width: var(--max-width);
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-600);
+
+  .upText{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-150);
+  }
+  .internText{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-200);
+  }
+  .smallTitle{
+    @include medium-2xl();
+    color: var(--dark-yellow-font-color);
+  }
+  .title h1{
+    @include medium-5xl();
+    color: var(--black-font-color);
+  }
+  .description p{
+    @include regular-2xl();
+    width: 60%;
+
+    color: var(--grey-font-color);
+  }
+  .serviceListing{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    gap: var(--spacing-300);
+    li{
+      flex: 0 0 calc(33% - 20px);
+    }
+  }
+  .buttonWrapper{
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-200);
+
+    button{
+      @include medium-2xl();
+      width: 250px;
+      height: 72px;
+
+      background-color: var(--dark-grey-color);
+      border-radius: 8px;
+      outline: none;
+      border: none;
+      cursor: pointer;
+
+      color: #FFFFFF;
+      transition: 1s;
+      &:hover{
+        background-color: darken(#2D2C2C, 10%)
+      }
+    }
+  }
+}
+@media screen and (max-width: 1280px){
+  
+  .servicesIntern{
+    .smallTitle{
+      @include medium-2xl();
+    }
+    .title h1{
+      @include medium-4xl();
+    }
+    .description p{
+      @include regular-2xl();
+  
+    }
+    .serviceListing{
+      gap: var(--spacing-200);
+      li{
+        flex: 0 0 calc(50% - 10px);
+      
+      }
+    }
+  }
+  }
+@media screen and (max-width: 768px){
+  
+.servicesIntern{
+  gap: var(--spacing-300);
+
+  .upText{
+    gap: var(--spacing-150);
+  }
+  .internText{
+    gap: var(--spacing-150);
+  }
+  .smallTitle{
+    @include medium-xl();
+    color: var(--dark-yellow-font-color);
+  }
+  .title h1{
+    @include medium-3xl();
+    gap: var(--spacing-150);
+  }
+  .description p{
+    @include regular-xl();
+    width: 100%;
+
+  }
+  .serviceListing{
+    gap: var(--spacing-100);
+    li{
+      flex: 0 0 calc(50% - 10px);
+    
+    }
+  }
+  .buttonWrapper{
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-200);
+
+    button{
+      @include medium-md();
+      width: 148px;
+      height: 42px;
+
+      background-color: var(--dark-grey-color);
+    }
+  }
+}
+}

@@ -1,0 +1,35 @@
+{
+  "id": "footer_link",
+  "type": "SharedSlice",
+  "name": "SocialMedia",
+  "description": "FooterLink",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "linkImage": {
+          "type": "Image",
+          "config": {
+            "label": "Imagem do Link",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link para Redirecionamento",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

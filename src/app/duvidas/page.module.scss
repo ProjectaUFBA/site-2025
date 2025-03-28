@@ -1,0 +1,180 @@
+@import '../mixins';
+
+.outerPage {
+    width: 100%;
+    padding: var(--padding-wrap);
+    padding-top: 9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--white-color);
+    color: var(--black-font-color);
+
+    @media (max-width: 1150px) {
+        padding-top: 6rem;
+    }
+}
+
+.page {
+    width: 90vw;
+    max-width: var(--max-width);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-1000);
+
+}
+
+.faqTitleSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: flex-start;
+    gap: var(--spacing-100);
+
+    .sectionTitle {
+        @include medium-xl();
+        color: var(--dark-yellow-font-color);
+
+        @media (max-width: 1000px) {
+            font-size: 1.1875rem;
+        }
+
+        @media (max-width: 800px) {
+            @include medium-lg();
+        }
+    }
+
+    .prismicTitle * {
+        @include bold-5xl();
+        font-weight: 600;
+
+        @media (max-width: 1000px) {
+            @include bold-4xl();
+        }
+
+        @media (max-width: 800px) {
+            @include bold-3xl();
+        }
+    }
+}
+
+.rightSide {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-800);
+
+    @media (max-width: 800px) {
+        gap: var(--spacing-300);
+    }
+
+    .faqQuestionsList {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        border-top: 1px solid rgba(215, 213, 213, 1);
+
+        section {
+            min-width: 100%;
+        }
+    }
+
+    .chatArea {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: rgba(252, 236, 183, 1);
+        gap: var(--spacing-200);
+        padding: var(--spacing-400);
+
+        border-radius: 6px;
+
+        @media (max-width: 800px) {
+            padding: var(--spacing-300);
+        }
+
+        .chatAreaWriting {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .chatAreaTitle {
+                @include medium-xl();
+
+                @media (max-width: 800px) {
+                    @include medium-lg();
+                }
+            }
+
+            .chatAreaDescription {
+                @include regular-lg();
+
+                @media (max-width: 800px) {
+                    @include regular-md();
+                }
+            }
+        }
+
+        .chatAreaButton {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            padding: var(--spacing-150) var(--spacing-300);
+            background-color: rgba(244, 193, 22, 1);
+            border-radius: 6px;
+            cursor: pointer;
+
+            a {
+                text-decoration: none;
+                color: var(--black-font-color);
+                @include medium-lg();
+
+                @media (max-width: 800px) {
+                    @include medium-md();
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .page {
+        .faqTitleSection {
+            width: 50%;
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .page {
+        flex-direction: column;
+        gap: var(--spacing-300);
+
+        .faqTitleSection {
+            width: 100%;
+        }
+    }
+
+    .rightSide {
+        .chatArea {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--spacing-200);
+
+            .chatAreaButton {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,100 @@
+{
+  "format": "page",
+  "id": "contact",
+  "label": "Contato",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "pageTitle": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Título da Página",
+          "placeholder": "Título da Página",
+          "allowTargetBlank": false,
+          "single": "heading1"
+        }
+      },
+      "pageDescription": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Descrição da Página",
+          "placeholder": "Descrição da Página",
+          "allowTargetBlank": false,
+          "multi": "paragraph"
+        }
+      },
+      "geopoint": {
+        "type": "GeoPoint",
+        "config": {
+          "label": "Geolocalização (Para Google Maps)"
+        }
+      },
+      "address": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Endereço",
+          "placeholder": "Endereço",
+          "allowTargetBlank": false,
+          "single": "paragraph"
+        }
+      },
+      "email": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Endereço de E-mail",
+          "placeholder": "Endereço de E-mail",
+          "allowTargetBlank": false,
+          "single": "paragraph"
+        }
+      },
+      "phone": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Telefone",
+          "placeholder": "Telefone",
+          "allowTargetBlank": false,
+          "single": "paragraph"
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "social_media_contact_page": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      }
+    }
+  }
+}

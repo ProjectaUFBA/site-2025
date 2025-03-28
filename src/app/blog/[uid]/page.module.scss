@@ -1,0 +1,384 @@
+@import "../../mixins";
+
+//General
+
+.blogPostPage {
+    padding: var(--padding-wrap);
+    padding-top: 4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white-color);
+    color: var(--black-font-color);
+
+    .post {
+        max-width: var(--max-width);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+//Background
+
+.postIntroBackground {
+
+    position: absolute;
+    top: 0;
+    
+    background-color: #fefce8;
+    width: 100vw;
+
+    height: 600px;
+}
+
+@media screen and (max-width: 1280px) {
+    .postIntroBackground {
+        height: 600px;
+    }
+}
+
+//Intro
+
+@mixin postTag {
+    text-align: center;
+    padding: var(--spacing-100) var(--spacing-200);
+    background-color: rgba(252, 219, 183, 1);
+    border-radius: 12px;
+    color: var(--grey-font-color);
+    @include medium-sm();
+}
+
+.postIntro {
+
+    position: relative;
+
+    padding-top: 4rem;
+
+    max-width: var(--max-width);
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-300);
+
+    .tagListing {
+        display: flex;
+        gap: var(--spacing-100);
+        .postTag {
+            @include postTag();
+        }
+    }
+
+
+
+    .postTitleContainer {
+        text-align: center;
+        width: 70%;
+        word-wrap: break-word;
+        h1 {
+            @include medium-5xl();
+        }
+    }
+
+
+    .authorArea {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-100);
+
+        img {
+            border-radius: 50%;
+        }
+
+        .authorName {
+            @include medium-md();
+        }
+    }
+
+    .postMainImage {
+        max-width: var(--max-width);
+        width: 60vw;
+        max-height: 350px;
+        margin: var(--spacing-300) 0;
+        transition: max-height 0.5s;
+    }
+
+}
+
+@media screen and (max-width: 1150px) {
+    .postIntro {
+        padding-top: 2rem;
+        .postTitleContainer {
+            width: 70vw;
+        }
+        .postMainImage {
+            width: 70vw;
+            max-height: 300px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .postIntro {
+        .postTitleContainer {
+            width: 90vw;
+        }
+        .postMainImage {
+            width: 90vw;
+            max-height: 300px;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .postIntro {
+        align-self: flex-start;
+        align-items: flex-start;
+
+        .postTitleContainer {
+            text-align: start;
+        }
+    }
+}
+
+//Content
+
+.postContent {
+    max-width: var(--max-width);
+    width: 50vw;
+    display: flex;
+    gap: var(--spacing-300);
+    flex-direction: column;
+    justify-content: center;
+
+    padding-bottom: var(--spacing-600);
+    border-bottom: 1px solid rgba(215, 213, 213, 1);
+
+    @include regular-lg();
+    font-weight: 400;
+    line-height: 24px;
+
+    img {
+        width: 100%;
+        max-height: 50vh; //Should I limit this? If so, by how much?
+    }
+
+    .tagListing {
+        display: flex;
+        gap: var(--spacing-100);
+
+        .postTag {
+            @include postTag();
+            background-color: rgba(253, 237, 220, 1);
+        }
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .postContent {
+        width: 70vw;
+    }
+}
+@media screen and (max-width: 768px) {
+    .postContent {
+        width: 90vw;
+    }
+}
+
+//You could also enjoy
+
+.youCouldAlsoEnjoy {
+    max-width: var(--max-width);
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-300);
+
+    padding-top: var(--spacing-600);
+
+    .youCouldAlsoEnjoyTitle {
+        @include medium-2xl();
+        color: rgba(244, 138, 22, 1);
+    }
+
+    .postListing {
+        max-width: var(--max-width);
+        width: 50vw;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        gap: var(--spacing-100);
+
+        .blogItem {
+            max-width: 300px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-150);
+
+            .postImage {
+                width: 100%;
+                height: 224px;
+                border-radius: 6px;
+                object-fit: cover;
+            }
+
+            .postTag {
+                position: absolute;
+                top: var(--spacing-150);
+                left: var(--spacing-150);
+                padding: 0.25rem var(--spacing-150);
+                background-color: rgba(253, 237, 220, 1);
+                border-radius: 12px;
+                color: var(--grey-font-color);
+                @include medium-sm();
+
+            }
+
+            .hoveringComponent {
+                opacity: 0;
+                transition: opacity 0.5s;
+
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                display: flex;
+                width: 100%;
+                height: 224px;
+                border-radius: 6px;
+                justify-content: center;
+                align-items: center;
+                gap: 0.25rem;
+
+                background-color: rgba(253, 237, 220, .4);
+                color: var(--white-font-color);
+
+                .hoveringText {
+                    @include regular-lg();
+                    font-weight: 500;
+                }
+            }
+
+            .hoveringComponent:hover {
+                transition: opacity 0.5s;
+                opacity: 1;
+            }
+
+            .postSummary {
+                width: 95%;
+                display: flex;
+                flex-direction: column;
+                align-self: center;
+                gap: var(--spacing-150);
+
+                .postTitle h1 {
+                    @include bold-lg();
+                    letter-spacing: normal;
+                    line-height: 24px;
+                }
+
+                .postSummaryDescription p {
+                    @include regular-md();
+                    line-height: 19.2px;
+                }
+
+                .authorDate {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: var(--spacing-150);
+                    @include regular-md();
+                    font-weight: 500;
+                    color: var(--orange-font-color);
+
+                    .postAuthor {
+                        display: flex;
+                        gap: var(--spacing-100);
+
+                        img {
+                            max-width: 24px;
+                            max-height: 24px;
+                            border-radius: 50%;
+                        }
+                    }
+
+                }
+
+
+
+                .postTitle * {
+                    @include medium-lg();
+                }
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .youCouldAlsoEnjoy {
+        .youCouldAlsoEnjoyTitle {
+            @include medium-2xl();
+            color: rgba(244, 138, 22, 1);
+        }
+        .postListing {
+            .blogItem {
+                max-width: 250px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .youCouldAlsoEnjoy {
+        align-self: flex-start;
+
+        .postListing {
+            width: 70vw;
+            gap: var(--spacing-300);
+            .blogItem {
+            max-width: 300px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 890px) {
+    .youCouldAlsoEnjoy {
+        .postListing {
+            .blogItem {
+                max-width: 250px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .youCouldAlsoEnjoy {
+        align-self: center;
+        align-items: center;
+
+        .youCouldAlsoEnjoyTitle {
+            width: 90vw;
+            text-align: start;
+        }
+        .postListing {
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            .blogItem {
+                max-width: 300px;
+            }
+        }
+    }
+}

@@ -1,0 +1,70 @@
+@import '../../app/mixins';
+
+.materialItemCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 384px;
+
+    border-radius: 6px;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+
+    @media (max-width: 900px) {
+        width: 312px;
+    }
+
+    img {
+        border-radius: 6px;
+        width: 100%;
+        height: 224px;
+        object-fit: cover;
+        object-position: top;
+
+        @media (max-width: 900px) {
+            height: 160px;
+        }
+    }
+
+    .writtenArea {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: var(--spacing-150);
+        padding: var(--spacing-300);
+
+        .materialItemTitle * {
+            @include medium-2xl();
+            font-weight: 600;
+            color: var(--dark-yellow-font-color);
+
+            @media (max-width: 900px) {
+                @include medium-xl();
+            }
+        }
+
+        .materialItemDescription * {
+            @include regular-lg();
+            line-height: 24px;
+
+            @media (max-width: 900px) {
+                @include regular-md();
+            }
+        }
+
+        .materialItemOpenForms {
+            @include medium-lg();
+            color: var(--dark-yellow-font-color);
+            cursor: pointer;
+            text-decoration: underline;
+
+            @media (max-width: 900px) {
+                @include medium-md();
+            }
+
+        }
+    }
+
+
+}

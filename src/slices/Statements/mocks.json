@@ -1,0 +1,65 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"clientPhoto": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1591012911207-0dbac31f37da",
+					"width": 4000,
+					"height": 4000
+				},
+				"url": "https://images.unsplash.com/photo-1591012911207-0dbac31f37da",
+				"width": 4000,
+				"height": 4000,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"clientName": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "In eu commodo eu ad proident eu consequat eiusmod Lorem."
+						}
+					}
+				]
+			},
+			"clientStatement": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Eu irure velit reprehenderit labore duis. Tempor non nostrud pariatur non. Tempor et duis tempor veniam commodo excepteur proident aliquip reprehenderit enim culpa exercitation."
+						}
+					}
+				]
+			},
+			"clientRole": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Officia anim ullamco quis fugiat ut reprehenderit reprehenderit. Minim aute deserunt laboris ullamco nulla ullamco sit nulla."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

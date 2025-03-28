@@ -1,0 +1,31 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"questionTitle": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Stepped"
+						}
+					}
+				]
+			},
+			"questionAnswer": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sint minim et enim dolor et labore laboris Lorem proident duis qui ex sint. Dolore aute est velit."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

@@ -1,0 +1,131 @@
+@import "../../mixins";
+
+.footer {
+    height: 280px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--dark-grey-color);
+
+}
+.internFooter{
+    width: var(--page-wrapper);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.footerList {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-600);
+    list-style: none;
+}
+
+.logoAddress{
+    img{
+        width: 125px;
+        margin-left: -12px;
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-200);
+}
+
+.address{
+    width: 70%;
+    @include regular-md;
+    color: var(--white-color);
+
+}
+
+@media screen and (max-width: 1280px) {
+    .address{
+        width: 80%;
+        @include regular-md;
+        color: var(--white-color);
+    
+    }
+    .footer {
+        height: 220px;
+    }
+    .internFooter{
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    
+    }
+    
+    .footerList {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-600);
+        list-style: none;
+    }
+    
+    .logoAddress{
+        img{
+            width: 125px;
+            margin-left: -12px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .address{
+        width: 90%;
+        position: absolute;
+        bottom: 1.5rem;
+        text-align: center;
+    
+    }
+    .logoAddress img{
+        position: absolute;
+        top: 2rem;
+        transform: scale(1.2);
+    }
+    .logoAddress{
+        display: flex;
+        align-items: center;
+    }
+    .footer {
+        position: relative;
+        height: 302px;
+    }
+    .internFooter{
+        height: 200px;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: var(--spacing-200);
+    }
+    
+    .footerList {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-300);
+        position: absolute;
+        bottom: 5rem;
+        list-style: none;
+
+        img{
+            transform: scale(.8);
+        }
+    }
+    
+    .logoAddress{
+        img{
+            width: 125px;
+            margin-left: -12px;
+        }
+    }
+}

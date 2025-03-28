@@ -1,0 +1,54 @@
+{
+  "id": "statements",
+  "type": "SharedSlice",
+  "name": "Statements",
+  "description": "Statements",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "clientStatement": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Testemunho do Cliente",
+            "placeholder": "Testemunho do Cliente",
+            "allowTargetBlank": false,
+            "multi": "paragraph"
+          }
+        },
+        "clientPhoto": {
+          "type": "Image",
+          "config": {
+            "label": "Foto do Cliente",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "clientName": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Nome do Cliente",
+            "placeholder": "Nome do Cliente",
+            "allowTargetBlank": false,
+            "single": "paragraph"
+          }
+        },
+        "clientRole": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Papel do Cliente",
+            "placeholder": "Papel do Cliente",
+            "allowTargetBlank": false,
+            "single": "paragraph"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"metodologyImage": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
+					"width": 4272,
+					"height": 2848
+				},
+				"url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
+				"width": 4272,
+				"height": 2848,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"metodologyTitle": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Customs"
+						}
+					}
+				]
+			},
+			"metodologyDescriptionTiny": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Esse ipsum Lorem elit tempor enim magna commodo exercitation. Minim id aute nulla mollit ad consectetur ipsum. Cillum do deserunt commodo adipisicing nulla qui deserunt officia proident velit."
+						}
+					}
+				]
+			},
+			"metodologyDescriptionLong": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Enim esse mollit do officia incididunt in eu adipisicing nostrud nostrud quis. Non ullamco est consequat pariatur nostrud ex aliqua eu elit Lorem consequat voluptate amet pariatur. Dolore Lorem velit consectetur nisi."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

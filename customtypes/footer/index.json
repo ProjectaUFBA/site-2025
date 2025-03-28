@@ -1,0 +1,37 @@
+{
+  "format": "custom",
+  "id": "footer",
+  "label": "Footer",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "footerLogo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo Clara Footer",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "address": {
+        "type": "Text",
+        "config": {
+          "label": "Endereco",
+          "placeholder": ""
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "footer_link": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

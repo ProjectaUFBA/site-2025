@@ -1,0 +1,52 @@
+@import "../../mixins";
+
+.servicesIntroWrapper{
+  width: 100%;
+  padding: var(--padding-wrap);
+  padding-top: var(--spacing-1000);
+  padding-bottom: var(--spacing-800);
+  display: flex;
+  justify-content: center;
+
+
+  .servicesIntroContent {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-200);
+
+    .title h1 {
+      @include bold-5xl();
+      font-weight: var(--font-weight-medium);
+    }
+    .description {
+      @include regular-2xl();
+      color: var(--grey-font-color);
+    }
+
+  }
+
+
+}
+
+@media screen and (max-width: 1280px) {
+
+  .servicesIntroWrapper {
+    .servicesIntroContent {
+      width: 70%;
+    }
+  }
+
+}
+
+@media screen and (max-width: 1024px) {
+
+  .servicesIntroWrapper {
+    .servicesIntroContent {
+      width: 90%;
+    }
+  }
+
+}

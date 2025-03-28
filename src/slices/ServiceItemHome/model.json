@@ -1,0 +1,45 @@
+{
+  "id": "services_slices",
+  "type": "SharedSlice",
+  "name": "ServiceItemHome",
+  "description": "ServicesSlices",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "serviceIcon": {
+          "type": "Image",
+          "config": {
+            "label": "Ícone do Serviço",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "serviceTitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Título do Serviço",
+            "placeholder": "Título do Serviço",
+            "allowTargetBlank": false,
+            "single": "heading2"
+          }
+        },
+        "serviceDescriptionTiny": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Descrição do Serviço Pequena",
+            "placeholder": "Descrição do Serviço Pequena",
+            "allowTargetBlank": false,
+            "multi": "paragraph"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

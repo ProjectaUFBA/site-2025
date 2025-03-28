@@ -1,0 +1,173 @@
+@import "../../mixins";
+
+.homeWrapper{
+  width: 100%;
+  height:calc(768px - 6rem);
+  padding: var(--padding-wrap);
+  display: flex;
+  align-items: center;
+
+  .homeIntern{
+    width: var(--page-wrapper);
+    max-width: var(--max-width);
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .wrapperInfos{
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-600);
+    color: var(--white-color);
+
+    .text{
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-300)
+    }
+
+    h1{
+      @include medium-6xl;
+      font-weight: 600 !important;
+      span{
+        color: var(--yellow-color);
+      }
+    }
+    .description{
+      @include regular-3xl;
+    
+    }
+    .wrapperButton{
+      display: flex;
+      gap: var(--spacing-300);
+
+      button{
+        @include medium-lg;
+        height: 60px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: none;
+        border: none;
+
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 1s;
+
+        color: var(--black-font-color);
+      }
+      .buttonContact{
+        width: 200px;
+        padding: 16px 24px 16px 24px;
+        background-color: var(--yellow-color);
+
+        &:hover{
+          background-color: darken(#F4C116, 10%);
+        }
+      
+      }
+      .buttonPortfolio{
+        width: 180px;
+        padding: 16px 24px 16px 24px;
+        border: 1px solid var(--yellow-color);
+
+        background-color: var(--white-color);
+
+        &:hover{
+          background-color: darken(#FFF, 10%);
+        }
+      
+      }
+    }
+  }
+
+  .bg{
+    width: 100%;
+    height: 16%;
+    position: absolute;
+    top: -6rem;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: -1;
+    background-size: cover !important;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .homeWrapper{
+    height: 700px;
+
+    .wrapperInfos{
+      gap: var(--spacing-400);
+  
+      .text{
+        gap: var(--spacing-300)
+      }
+  
+      h1{
+        @include bold-6xl;
+      }
+      .description{
+        @include regular-2xl;
+      
+      }
+    }
+    .bg{
+      height: 12%;
+      top: -1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .homeWrapper{
+    height: 600px;
+
+    .wrapperInfos{
+      width: 80%;
+      gap: var(--spacing-300);
+  
+      .text{
+        gap: var(--spacing-150)
+      }
+  
+      h1{
+        @include bold-4xl;
+      }
+      .description{
+        @include regular-xl;
+      
+      }
+      .wrapperButton{
+        gap: var(--spacing-150);
+  
+        button{
+          @include medium-sm;
+          height: 44px;
+        }
+        .buttonContact{
+          width: 140px;
+          padding: var(--spacing-150);
+        }
+        .buttonPortfolio{
+          width: 125px;
+          padding: var(--spacing-150);
+  
+          &:hover{
+            background-color: darken(#FFF, 10%);
+          }
+        }
+      }
+    }
+    .bg{
+      height: 100vh;
+      top: -1rem;
+      object-fit: cover;
+    }
+  }
+}

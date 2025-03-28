@@ -1,0 +1,45 @@
+{
+  "id": "about_us_item",
+  "type": "SharedSlice",
+  "name": "AboutUsItem",
+  "description": "AboutUsItem",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "aboutUsItemIcon": {
+          "type": "Image",
+          "config": {
+            "label": "Ícone do Item de Quem Somos",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "aboutUsItemTitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Título do Item de Quem Somos",
+            "placeholder": "Título do Item de Quem Somos",
+            "allowTargetBlank": false,
+            "single": "heading2"
+          }
+        },
+        "aboutUsItemDescription": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Descrição do Item de Quem Somos",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "multi": "paragraph"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

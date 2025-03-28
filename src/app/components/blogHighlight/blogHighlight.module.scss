@@ -1,0 +1,364 @@
+@import "../../mixins";
+
+.wrapperMobile{
+  display: none;
+}
+.wrapper{
+  width: 100%;
+}
+.wrapperDesktop{
+  width: 100%;
+  height: 560px;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #fefce8;
+
+  .arrowDiv{
+    width: 85%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    z-index: 3;
+
+
+    img{
+      transition: .5s;
+      cursor: pointer;
+      opacity: 0.5;
+
+      &:hover{
+        opacity: 1.0;
+      }
+    }
+    .translate{
+      transform: rotate(180deg);
+    }
+  }
+
+  .imageLeft{
+    width: 51%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .divRightWrapper{
+    width: 49%;
+    height: 100%;
+    &:hover{
+      h1{
+        color: var(--orange-second-color) !important;
+      }
+    
+    }
+
+    .divRightIntern{
+
+      height: 100%;
+      width: 70%;
+      display: flex;
+      align-items: center;
+
+      .centerDiv{
+        color: var(--black-font-color);
+        width: 80%;
+        height: 80%;
+        margin: 0 auto;
+        display: flex;
+
+        justify-content: center;
+        flex-direction: column;
+        gap: var(--spacing-300);
+
+        .buttonsWrapper{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          gap: var(--spacing-200);
+          button{
+            height: 30px;
+            padding: var(--spacing-100) var(--spacing-150) var(--spacing-100) var(--spacing-150);
+            border-radius: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            outline: none;
+            border: none;
+
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 19.2px;
+            text-align: center;
+          }
+          .highlightButton{
+            width: 117px;
+            gap: 10px;
+            background-color: var(--orange-second-color);
+
+            color: var(--white-font-color);
+            
+          }
+          .tagButton{
+            width: auto;
+
+            background-color: var(--light-orange-color);
+
+            color: var(--grey-font-color);
+          }
+        }
+
+        h1{
+          width: 80%;
+          @include medium-5xl;
+          line-height: 57.6px !important;
+          color: var(--black-font-color);
+          transition: .5s;
+
+        }
+
+        .authorDiv{
+          display: flex;
+          align-items: center;
+          gap: var(--spacing-200);
+
+          img{
+            border-radius: 50%;
+          }
+
+          .authorData{
+            display: flex;
+            flex-direction: column;
+            color: #5A5756;
+            h2{
+              font-size: 20px;
+              font-weight: 600;
+              line-height: 24px;
+              text-align: left;
+
+            }
+            p{
+              font-size: 16px;
+              font-weight: 300;
+              line-height: 19.2px;
+              text-align: left;
+            }
+            div{
+              display: flex;
+              align-items: baseline;
+              gap: 4px;
+            }
+          }
+
+        }
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 1050px){
+  .wrapperDesktop{
+    display: none !important;
+  }
+  .wrapper{
+    height: 576px !important;
+    margin-top: -2rem;
+    position: relative;
+  }
+  .wrapperMobile{
+    width: 100% !important;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    display: unset !important;
+
+    .internMobileDiv{
+      width: 100%;
+      padding: 4rem 2rem 4rem 2rem;
+      margin: 0 auto;
+      height: 100%;
+      
+      position: absolute;
+      z-index: 2;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .divController{
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: var(--spacing-400);
+
+        .buttonsWrapper{
+          width: 90%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: var(--spacing-200);
+          button{
+            height: 30px;
+            padding: var(--spacing-100) var(--spacing-150) var(--spacing-100) var(--spacing-150);
+            border-radius: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            outline: none;
+            border: none;
+
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 19.2px;
+            text-align: center;
+          }
+          .highlightButton{
+            width: 117px;
+            gap: 10px;
+            background-color: var(--orange-second-color);
+
+            color: var(--white-font-color);
+            
+          }
+          .tagButton{
+            width: auto;
+
+            background-color: var(--light-orange-color);
+
+            color: var(--grey-font-color);
+          }
+        }
+
+
+        h1{
+          @include bold-4xl;
+          color: var(--white-font-color);
+          text-align: center;
+          width: 90%;
+          font-weight: 600 !important;
+
+        }
+
+        .authorDiv{
+          display: flex;
+          align-items: center;
+          gap: var(--spacing-150);
+
+          img{
+            border-radius: 50%;
+          }
+
+          .authorData{
+            display: flex;
+            flex-direction: column;
+            color: var(--white-font-color);
+            h2{
+              font-size: 20px;
+              font-weight: 600;
+              line-height: 24px;
+              text-align: left;
+
+            }
+            p{
+              font-size: 16px;
+              font-weight: 300;
+              line-height: 19.2px;
+              text-align: left;
+            }
+            div{
+              display: flex;
+              align-items: baseline;
+              gap: 4px;
+            }
+          }
+
+        }
+
+        .mapSphere{
+          position: absolute;
+          bottom: 2rem;
+          left: 0;
+          right: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: var(--spacing-100);
+
+          .eachSphere{
+            width: .6rem;
+            height: .6rem;
+            border-radius: 50%;
+            background-color: #D9D9D999;
+          }
+          .selectedSphere{
+            background-color: #FAFAFA !important;
+          }
+
+        }
+        
+      }
+
+    }
+
+    .imgWrapperMobile{
+      width: 100%;
+      img{
+        width: 100%;
+        height: 576px;
+        object-fit: cover;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px){
+  .wrapperMobile{
+
+    .internMobileDiv{
+
+      .divController{
+        align-items: flex-start;
+
+        .buttonsWrapper{
+          justify-content: flex-start;
+        }
+
+
+        h1{
+          text-align: start;
+        }
+
+        .authorDiv{
+          align-items: center;
+
+        }
+        
+      }
+
+
+    }
+
+  }
+}

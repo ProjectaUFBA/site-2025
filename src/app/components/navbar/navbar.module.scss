@@ -1,0 +1,277 @@
+@import "../../_mixins";
+
+$primaryColor: #FAFAFA;
+$borderColor: #D7D5D5;
+$fontActiveColor: #0D0C0C;
+$fontInactiveColor: #5A5756;
+
+.mobileMenuWrapper,
+.navbarListSocialMedia {
+    display: none;
+}
+
+.navbarWrapper {
+    width: 100%;
+    height: 6rem;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    font-family:  var(--font-barlow);
+    font-weight: 700;
+    color: #fff;
+
+    position: fixed;
+    z-index: 2;
+    .internWrapper{
+        width: var(--page-wrapper);
+        max-width: var(--max-width);
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        gap: var(--spacing-200);
+
+    }
+
+    button{
+        @include medium-lg();
+        
+        width: 200px;
+        height: 52px;
+        padding: var(--spacing-150) 24px var(--spacing-150) 24px;
+
+        background-color: var(--yellow-color);
+
+        color: black;
+        border: none;
+        border-radius: 5px;
+
+        cursor: pointer;
+        transition: 1s;
+        &:hover{
+            background-color: darken( #F4C116 ,7.5%);
+        
+        }
+    }
+}
+
+.navbarLeft{
+    gap: 10rem;
+    height: 6rem;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--spacing-400);
+
+    .controlImg{
+        height: 5.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .line{
+        width: 100%;
+        height: .25rem;
+        background-color: var(--yellow-color);
+    }
+    .navbarList {
+        width: 100%;
+        height: 3.25rem;
+
+        display: flex;
+        justify-content: space-between;
+        gap: var(--spacing-300);
+        li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            
+            list-style: none;
+        }
+        .listActive {
+            color: $fontActiveColor;
+            @include bold-lg();
+        }
+        .listInactive {
+            @include medium-md();
+            a{
+                margin-top: 2px;
+            }
+            color: $fontInactiveColor;
+
+            div{
+                display: none !important;
+            }
+        }
+    }
+    .navbarListInactive {
+        width: 100%;
+        height: 3.25rem;
+
+        display: flex;
+        justify-content: space-between;
+        gap: var(--spacing-300);
+        li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            
+            list-style: none;
+        }
+        .listActive {
+            color: var(--white-font-color);
+            @include bold-lg();
+        }
+        .listInactive {
+            @include medium-md();
+            a{
+                margin-top: 2px;
+            }
+            color: var(--white-font-color);
+
+            div{
+                display: none !important;
+            }
+        }
+    }
+}
+.backgroundActive{
+    background-color: $primaryColor !important;
+    border-bottom: 1px solid var(--base-300, #D7D5D5);
+    transition: .5s;
+}
+.backgroundInactive{
+    background-color: transparent !important;
+    transition: .5s;
+}
+.hamburgerIcon{
+    display: none;
+}
+
+@media (max-width: 1150px) {
+    .navbarListSocialMedia{
+        list-style: none;
+        display: flex;
+        gap: var(--spacing-500);
+        img{
+            transform: scale(1.3);
+        }
+    }
+    .mobileMenuWrapper{
+        width: 100%;
+        height: 100vh;
+        top: 0px;
+        position: fixed;
+        z-index: 3;
+
+        display: flex;
+        justify-content: center;
+
+        background-color: var(--white-color);
+    }
+    .navbarLeft{
+        width: 55%;
+    }
+    .listMobileWrapper{
+        padding-top: 6rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-300);
+        list-style: none;
+
+        .optionSelected{
+            @include bold-2xl;
+            color: var(--black-font-color);
+            border-bottom: 5px solid #F4C116;
+        }
+        .optionNotSelected{
+            @include medium-2xl;
+            color: var(--grey-font-color);
+        }
+    }
+    .hamburgerIcon{
+        display: flex;
+        cursor: pointer;
+    }
+    .navbarList {
+      display: none !important;
+    }
+    .navbarListInactive {
+      display: none !important;
+    }
+    .navbarWrapper{
+        align-items: center;
+        justify-content: center;
+        height: 4rem;
+        z-index: 4;
+    
+        
+    button {
+        @include medium-sm();
+        
+        width: 136;
+        height: 36px;
+        padding: var(--spacing-100) var(--spacing-150) var(--spacing-100) var(--spacing-150);
+
+        background-color: var(--yellow-color);
+
+        color: black;
+        border: none;
+        border-radius: 6px;
+
+        cursor: pointer;
+        transition: 1s;
+        &:hover{
+            background-color: darken( #F4C116 ,7.5%);
+        
+        }
+    
+        }
+        .controlImg{
+            height: 6.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    .bottomEmail{
+        width: 90%;
+
+        position: absolute;
+        bottom: 30px;
+        color: var(--black-font-color);
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .bottomEmailText{
+        @include medium-xl();
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-100);
+    }
+  }
+
+  @media (max-width: 400px) {
+    .internWrapper{
+        button{
+            @include medium-xs();
+
+            width: 136px;
+                
+        }
+    }
+    .controlImg {
+        width: 6.5rem;
+    }
+  }

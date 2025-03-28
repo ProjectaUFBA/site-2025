@@ -1,0 +1,54 @@
+{
+  "id": "metodology_cards",
+  "type": "SharedSlice",
+  "name": "MetodologyItem",
+  "description": "MetodologyCards",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "metodologyImage": {
+          "type": "Image",
+          "config": {
+            "label": "Imagem da Metodologia",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "metodologyTitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Título da Metodologia",
+            "placeholder": "Título da Metodologia",
+            "allowTargetBlank": false,
+            "multi": "heading2"
+          }
+        },
+        "metodologyDescriptionTiny": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Descrição da Metodologia Pequena",
+            "placeholder": "Descrição da Metodologia Pequena",
+            "allowTargetBlank": false,
+            "multi": "paragraph"
+          }
+        },
+        "metodologyDescriptionLong": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Descrição da Metodologia Longa",
+            "placeholder": "Descrição da Metodologia Longa",
+            "allowTargetBlank": false,
+            "multi": "paragraph"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

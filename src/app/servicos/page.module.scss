@@ -1,0 +1,24 @@
+@import '../mixins';
+
+.servicePage {
+    width: 100%;
+    padding: var(--padding-wrap);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--white-color);
+    color: var(--black-font-color);
+}
+
+.serviceIntern {
+    width: 100%;
+    max-width: var(--max-width);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-600);
+
+    list-style: none;
+
+}

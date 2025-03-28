@@ -1,0 +1,136 @@
+:root {
+  
+  /* Fonts */
+  --font-size-xs: 0.75rem;  
+  --font-size-sm: 0.875rem; 
+  --font-size-md: 1rem;    
+  --font-size-lg: 1.125rem; 
+  --font-size-xl: 1.25rem;  
+  --font-size-2xl: 1.5rem; 
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem; 
+  --font-size-5xl: 3rem;   
+  --font-size-6xl: 3.75rem; 
+  --font-size-7xl: 4.5rem;  
+  --font-size-8xl: 6rem;   
+  --font-size-9xl: 8rem;  
+
+
+  /*Font Line Height*/
+  --font-line-height-xs: 1rem;          
+  --font-line-height-sm: 1.25rem;        
+  --font-line-height-md: 1.5rem;         
+  --font-line-height-lg: 1.75rem;        
+  --font-line-height-xl: 1.75rem;      
+  --font-line-height-2xl: 2rem;       
+  --font-line-height-3xl: 2.25rem;      
+  --font-line-height-4xl: 2.5rem;    
+  --font-line-height-5xl: 3rem;       
+  --font-line-height-6xl: 3.75rem;     
+  --font-line-height-7xl: 4.5rem;    
+  --font-line-height-8xl: 6rem;      
+  --font-line-height-9xl: 8rem;
+
+  /*Font Spacing*/
+  --font-letter-spacing-tighter: -0.125rem;  
+  --font-letter-spacing-tight: -0.0625rem;   
+  --font-letter-spacing-normal: 0;        
+  --font-letter-spacing-wide: 0.03125rem;   
+  --font-letter-spacing-wider: 0.0625rem; 
+  --font-letter-spacing-widest: 0.125rem;
+
+  /*Font Weights*/
+  --font-weight-bold: 700;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+
+  /*Font Family*/
+  --font-family-title: var(--font-barlow);
+  --font-family-body: var(--font-barlow);
+
+  /*Font Colors*/
+  --black-font-color: #000;
+  --light-orange-font-color: #FCDBB7;
+  --orange-font-color: #DC7C14;
+  --dark-orange-font-color: #C36E12;
+  --dark-yellow-font-color: #DCAE14;
+  --grey-font-color: #5A5756;
+  --white-font-color: #FAFAFA;
+  --other-white-font-color: #FEF9E8;
+
+  /*Colors*/
+  --white-color: #FFF;
+  --yellow-color: #F4C116;
+  --light-orange-color: #FCDBB7;
+  --light-yellow-color: #FCECB7;
+  --orange-color: #DC7C14;
+  --grey-color:#454343;
+  --dark-grey-color: #2D2C2C;
+  --orange-second-color: #F48A16;
+  --orange-gradient: linear-gradient(90deg, #F4C116 0%, #F48A16 100%);
+
+  /*Widths and Sizes*/
+  --padding-wrap: 4rem 0rem;
+  --page-wrapper: 90%;
+  --max-width: 1400px;
+  @media screen and (max-width: 1280px) {
+    --padding-wrap: 3rem 0rem;
+  }
+  @media screen and (max-width: 768px) {
+    --padding-wrap: 2rem 0rem;
+  }
+
+  /*Gaps*/
+  --spacing-100: 0.5rem;
+  --spacing-150: 0.75rem;
+  --spacing-200: 1rem;
+  --spacing-250: 1.25rem;
+  --spacing-300: 1.5rem;
+  --spacing-400: 2rem;
+  --spacing-500: 2.5rem;
+  --spacing-600: 3rem;
+  --spacing-800: 4rem;
+  --spacing-1000: 5rem;
+
+}
+
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-barlow);
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}

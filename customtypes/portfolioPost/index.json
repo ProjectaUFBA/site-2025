@@ -1,0 +1,133 @@
+{
+  "format": "page",
+  "id": "portfolioPost",
+  "label": "Portfolio Post",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "portfolioItemTitle": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Título do Item de Portfólio",
+          "placeholder": "Título do Item de Portfólio",
+          "allowTargetBlank": false,
+          "single": "heading1"
+        }
+      },
+      "portfolioItemSummary": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Sumário do Item de Portfóilio",
+          "placeholder": "Sumário do Item de Portfóilio",
+          "allowTargetBlank": false,
+          "multi": "paragraph"
+        }
+      },
+      "portfolioItemDate": {
+        "type": "Date",
+        "config": {
+          "label": "Data do Item de Portfólio",
+          "placeholder": "Data do Item de Portfólio"
+        }
+      },
+      "portfolioItemMainPicture": {
+        "type": "Image",
+        "config": {
+          "label": "Principal Foto do Item de Portfólio",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "portfolioItemDescription": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Descrição do Item de Portfólio",
+          "placeholder": "Descrição do Item de Portfólio",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,hyperlink,image"
+        }
+      },
+      "projectType": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Tipo do Projeto",
+          "placeholder": "Tipo do Projeto",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
+      "projectArea": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Área do Projeto",
+          "placeholder": "Área do Projeto",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
+      "projectObjectives": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Objetivos do Projeto",
+          "placeholder": "Objetivos do Projeto",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
+      "projectBenefits": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Benefícios do Projeto",
+          "placeholder": "Benefícios do Projeto",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "portfolio_item_image": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      }
+    }
+  }
+}

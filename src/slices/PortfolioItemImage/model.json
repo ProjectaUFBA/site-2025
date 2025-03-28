@@ -1,0 +1,59 @@
+{
+  "id": "portfolio_item_image",
+  "type": "SharedSlice",
+  "name": "PortfolioItemImage",
+  "description": "PortfolioItemImage",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "portfolioItemImage1": {
+          "type": "Image",
+          "config": {
+            "label": "Imagem do Item de Portfólio 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "portfolioItemImage2": {
+          "type": "Image",
+          "config": {
+            "label": "Imagem do Item de Portfólio 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "portfolioItemImage3": {
+          "type": "Image",
+          "config": {
+            "label": "Imagem do Item de Portfólio 3",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "portfolioItemImage4": {
+          "type": "Image",
+          "config": {
+            "label": "Imagem do Item de Portfólio 4",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "portfolioItemImage5": {
+          "type": "Image",
+          "config": {
+            "label": "Imagem do Item de Portfólio 5",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
