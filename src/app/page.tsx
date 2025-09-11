@@ -22,8 +22,8 @@ export default async function Page() {
   });
 
   return (
-    <main className={styles.page}>
-      <HomeHero title={page.data.whiteTitleText} titleYellow={page.data.yellowTitleText} description={page.data.heroDescription} image={page.data.heroImage1}/>
+    <main className={styles.main}>
+      <HomeHero title={page.data.whiteTitleText} titleYellow={page.data.yellowTitleText} description={page.data.heroDescription} images={[page.data.heroImage1]} slices={page.data.slices}/>
       <HeroServices title={page.data.servicesTitle} description={page.data.servicesDescription} slices={page.data.slices.filter((e) => {
             return e.slice_type == 'services_slices';
           })}/>
@@ -31,21 +31,9 @@ export default async function Page() {
             return e.slice_type == 'metodology_cards';
           })}/>
       <HeroPortfolio title={page.data.portfolioTitle} description={page.data.portfolioDescription} portfolioPosts={portfolioPosts}/>
-      <HeroAboutUs title={page.data.aboutUsTitle} description={page.data.aboutUsDescription} image={page.data.aboutUsImage} slices={page.data.slices.filter((e) => {
-            return e.slice_type == 'about_us_item';
-          })}/>
+      <HeroAboutUs title={page.data.aboutUsTitle} description={page.data.aboutUsDescription} image={page.data.aboutUsImage} slices={page.data.slices}/>
       <HeroCallToAction image={page.data.callToActionLogo} title={page.data.callToActionTitle} description={page.data.callToActionDescription}/>
 
     </main>
   );
-}
-
-export async function generateMetadata(): Promise<Metadata> {
-  const client = createClient();
-  const page = await client.getSingle("home");
-
-  return {
-    title: page.data.meta_title,
-    description: page.data.meta_description,
-  };
 }

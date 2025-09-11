@@ -3,9 +3,11 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  about_us_architect: dynamic(() => import("./AboutUsArchitect")),
   about_us_item: dynamic(() => import("./AboutUsItem")),
   faq_question: dynamic(() => import("./FaqQuestion")),
   footer_link: dynamic(() => import("./SocialMedia")),
+  hero_animated_image: dynamic(() => import("./HeroAnimatedImage")),
   material_item: dynamic(() => import("./MaterialItem")),
   metodology_cards: dynamic(() => import("./MetodologyItem")),
   portfolio_item_image: dynamic(() => import("./PortfolioItemImage")),

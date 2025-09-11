@@ -3,6 +3,7 @@
 .servicesWrapper{
   width: 100%;
   padding: var(--padding-wrap);
+  padding-bottom: var(--spacing-800);
 
   background-color: var(--white-color);
 }
@@ -20,6 +21,30 @@
     flex-direction: column;
     gap: var(--spacing-150);
   }
+
+  .titleWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .contactButton {
+      button {
+        @include medium-2xl();
+        padding: 12px 24px;
+        background-color: var(--yellow-color);
+        border: none;
+        border-radius: 6px;
+        color: var(--black-font-color);
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+          background-color: darken(#F4C116, 10%);
+        }
+      }
+    }
+  }
+
   .internText{
     display: flex;
     flex-direction: column;
@@ -45,36 +70,23 @@
     justify-content: center;
     list-style: none;
     gap: var(--spacing-300);
-    li{
-      flex: 0 0 calc(33% - 20px);
-    }
-  }
-  .buttonWrapper{
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-200);
 
-    button{
-      @include medium-2xl();
-      width: 250px;
-      height: 72px;
+    li {
+      flex: 0 0 calc(33.333% - 20px);
+      display: flex;
 
-      background-color: var(--dark-grey-color);
-      border-radius: 8px;
-      outline: none;
-      border: none;
-      cursor: pointer;
-
-      color: #FFFFFF;
-      transition: 1s;
-      &:hover{
-        background-color: darken(#2D2C2C, 10%)
+      section {
+        width: 100%;
       }
     }
   }
+
+  .mobileContactButton {
+    display: none;
+  }
 }
+
 @media screen and (max-width: 1280px){
-  
   .servicesIntern{
     .smallTitle{
       @include medium-2xl();
@@ -84,60 +96,75 @@
     }
     .description p{
       @include regular-2xl();
-  
     }
     .serviceListing{
       gap: var(--spacing-200);
       li{
         flex: 0 0 calc(50% - 10px);
-      
       }
     }
   }
-  }
-@media screen and (max-width: 768px){
-  
-.servicesIntern{
-  gap: var(--spacing-300);
-
-  .upText{
-    gap: var(--spacing-150);
-  }
-  .internText{
-    gap: var(--spacing-150);
-  }
-  .smallTitle{
-    @include medium-xl();
-    color: var(--dark-yellow-font-color);
-  }
-  .title h1{
-    @include medium-3xl();
-    gap: var(--spacing-150);
-  }
-  .description p{
-    @include regular-xl();
-    width: 100%;
-
-  }
-  .serviceListing{
-    gap: var(--spacing-100);
-    li{
-      flex: 0 0 calc(50% - 10px);
-    
-    }
-  }
-  .buttonWrapper{
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-200);
-
-    button{
-      @include medium-md();
-      width: 148px;
-      height: 42px;
-
-      background-color: var(--dark-grey-color);
-    }
-  }
 }
+
+@media screen and (max-width: 768px){
+  .servicesIntern{
+    gap: var(--spacing-300);
+
+    .upText{
+      gap: var(--spacing-150);
+    }
+    .internText{
+      gap: var(--spacing-150);
+    }
+    .smallTitle{
+      @include medium-xl();
+      color: var(--dark-yellow-font-color);
+    }
+    .title h1{
+      @include medium-3xl();
+      gap: var(--spacing-150);
+    }
+    .description p{
+      @include regular-xl();
+      width: 100%;
+    }
+    .serviceListing{
+      gap: var(--spacing-100);
+      li{
+        flex: 0 0 calc(50% - 8px);
+      }
+    }
+
+    .titleWrapper {
+      flex-direction: column;
+      gap: var(--spacing-200);
+      align-items: flex-start;
+
+      .contactButton {
+        display: none;
+      }
+    }
+
+    .mobileContactButton {
+      display: block;
+      width: 100%;
+      margin-top: var(--spacing-200);
+
+      button {
+        width: 100%;
+        @include medium-md();
+        padding: 12px 24px;
+        background-color: var(--yellow-color);
+        border: none;
+        border-radius: 6px;
+        color: var(--black-font-color);
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+          background-color: darken(#F4C116, 10%);
+        }
+      }
+    }
+  }
 }

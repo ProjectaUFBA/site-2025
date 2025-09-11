@@ -45,53 +45,6 @@ export default function IndividualPortfolio({page}: { page: PortfolioItem }) {
     return () => window.removeEventListener("resize", handleResize);
 }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const titleBottom = titleBottomRef.current;
-      const projectTypes = projectTypesRef.current;
-      const wrapperProject = wrapperProjectRef.current;
-
-      if (!titleBottom || !projectTypes || !wrapperProject) return;
-
-      const titleBottomRect = titleBottom.getBoundingClientRect();
-      const projectTypesRect = projectTypes.getBoundingClientRect();
-
-      const titleBottomTop = titleBottomRect.top;
-      const titleBottomBottom = titleBottomRect.bottom;
-      const projectTypesHeight = projectTypesRect.height;
-
-      if (titleBottomTop < 50 && titleBottomBottom > projectTypesHeight) {
-        projectTypes.style.position = 'fixed';
-        projectTypes.style.width = '500px';
-        projectTypes.style.height = '400px'
-        projectTypes.style.maxWidth = '500px';
-        projectTypes.style.top = '120px';
-        projectTypes.style.right = '50%';
-        projectTypes.style.left = '59%';
-        wrapperProject.style.display = 'block';
-        wrapperProject.style.position = 'relative';
-
-      } else if (titleBottomBottom <= projectTypesHeight) {
-        projectTypes.style.top = (titleBottomBottom - projectTypesHeight) + 'px';
-
-      } else {
-        projectTypes.style.width = '500px';
-        projectTypes.style.height = '400px'
-        projectTypes.style.position = 'static';
-        wrapperProject.style.display = 'flex';
-        wrapperProject.style.position = 'static';
-      }
-    };
-
-    if(windowSize.width > 1150) {
-      window.addEventListener('scroll', handleScroll);
-    }
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [windowSize.width]);
-
   const [sliceMap, setSliceMap] = useState<ImageFieldImage[]>([]);
 
   useEffect(() => {
@@ -145,7 +98,6 @@ export default function IndividualPortfolio({page}: { page: PortfolioItem }) {
               </Link>
               <div className={styles.text}>
                 <PrismicRichText field={page.portfolioItemTitle} />
-                <PrismicRichText field={page.portfolioItemSummary} />
               </div>
             </div>
             {page.slices[0] ? 
@@ -168,66 +120,72 @@ export default function IndividualPortfolio({page}: { page: PortfolioItem }) {
             }
           </div>
           <section className={styles.mobileImagesWrapper}>
-            <div>
-              <div 
-                className={styles.imageContainerMobile}
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
-              >
-                {sliceMap.length > 0 && (
-                  <PrismicNextImage
-                    width={300}
-                    height={300}
-                    field={sliceMap[currentIndex]}
-                    fallback={sliceMap[currentIndex].alt ?? ''}
-                  />
-                )}
-              <div className={styles.paginationMobileNumber}>
-                <h2>{currentIndex + 1} / {sliceMap.length}</h2>
-              </div>
-              </div>
+            <div className={styles.mobileImageContainer}>
+              {/* Mostra apenas a primeira imagem no mobile */}
+              {page.slices[0] ? (
+                <PrismicNextImage
+                  width={300}
+                  height={300}
+                  field={page.slices[0].primary.portfolioItemImage1 as ImageFieldImage}
+                  fallback={page.slices[0].primary.portfolioItemImage1 ? page.slices[0].primary.portfolioItemImage1.toString() : ''}
+                />
+              ) : (
+                <PrismicNextImage
+                  width={300}
+                  height={300}
+                  field={page.portfolioItemMainPicture}
+                  fallback={typeof page.portfolioItemMainPicture === 'string' ? page.portfolioItemMainPicture : page.portfolioItemMainPicture.alt ?? ''}
+                />
+              )}
+              
+              {/* Botão Ver fotos - apenas se existirem mais de uma foto */}
+              {sliceMap.length > 1 && (
+                <button className={styles.viewPhotosButton} onClick={() => setIsModal(true)}>
+                  <p>Ver fotos ({sliceMap.length})</p>
+                </button>
+              )}
             </div>
           </section>
           <section ref={titleBottomRef} className={styles.titleBottom}>
-            <h2 className={styles.aboutProjectTitleDesktop}>Sobre o projeto:</h2>
             <div ref={wrapperProjectRef} className={styles.bottomInfo}>
-              <div className={styles.aboutProject}>
-                <h2 className={styles.aboutProjectTitleMobile}>Sobre o projeto:</h2>
-                <PrismicRichText field={page.portfolioItemDescription} />
-              </div>
               <section  className={styles.projectTypes}>
                 <div ref={projectTypesRef} className={styles.internSquareDiv}>
                   <div className={styles.eachTypeWrapper}>
-                    <Image src="/houseIcon.svg" alt={"Tipo de Projeto"} width={30} height={25}/>
+                    <Image className={styles.eachTypeIcon} src="/houseIcon.svg" alt={"Tipo de Projeto"} width={30} height={25}/>
                     <div className={styles.typeText}>
                       <h3>Tipo de projeto</h3>
                       <PrismicRichText field={page.projectType} />
                     </div>
                   </div>
                   <div className={styles.eachTypeWrapper}>
-                    <Image src="/sofaIcon.svg" alt={"Tipo de Projeto"} width={30} height={25}/>
+                    <Image className={styles.eachTypeIcon} src="/rulerIcon.svg" alt={"Área do Projeto"} width={30} height={25}/>
                     <div className={styles.typeText}>
                       <h3>Área do projeto</h3>
-                      <PrismicRichText field={page.projectType} />
+                      <PrismicRichText field={page.projectArea} />
                     </div>
                   </div>
                   <div className={styles.eachTypeWrapper}>
-                    <Image src="/goalsIcon.svg" alt={"Tipo de Projeto"} width={30} height={25}/>
+                    <Image className={styles.eachTypeIcon} src="/clipboardIcon.svg" alt={"Objetivos"} width={30} height={25}/>
                     <div className={styles.typeText}>
                       <h3>Objetivos</h3>
-                      <PrismicRichText field={page.projectType} />
+                      <PrismicRichText field={page.projectObjectives} />
                     </div>
                   </div>
                   <div className={styles.eachTypeWrapper}>
-                    <Image src="/benefitsIcon.svg" alt={"Tipo de Projeto"} width={30} height={25}/>
+                    <Image className={styles.eachTypeIcon} src="/heartIcon.svg" alt={"Benefícios"} width={30} height={25}/>
                     <div className={styles.typeText}>
                       <h3>Benefícios</h3>
-                      <PrismicRichText field={page.projectType} />
+                      <PrismicRichText field={page.projectBenefits} />
                     </div>
                   </div>
                 </div>
               </section>
+              <h2 className={styles.aboutProjectTitleDesktop}>Sobre o projeto:</h2>
+              <div className={styles.aboutProject}>
+                <h2 className={styles.aboutProjectTitleMobile}>Sobre o projeto:</h2>
+                <PrismicRichText field={page.portfolioItemSummary} />
+                <PrismicRichText field={page.portfolioItemDescription} />
+              </div>
             </div>
           </section>
         </section>

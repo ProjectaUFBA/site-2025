@@ -22,7 +22,7 @@ const ServicesSlices = ({ slice }: ServicesSlicesProps): JSX.Element => {
         data-slice-variation={slice.variation}
         className={styles.serviceItem}
       > 
-        <Link href={"/servicos"}>
+        <Link href={"/servicos"} className={styles.serviceLink}>
           <div className={styles.imageSquare}>
             <PrismicNextImage field={slice.primary.serviceIcon} fallback={slice.primary.serviceIcon.alt ?? ''}/>
           </div>

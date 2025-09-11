@@ -12,7 +12,10 @@ export default function HeroServices({title, description, slices}: {title: Title
     <section className={styles.servicesWrapper}>
       <div className={styles.servicesIntern}>
         <div className={styles.upText}>
-          <p className={styles.smallTitle}>SERVIÇOS</p>
+          <div className={styles.titleWrapper}>
+            <p className={styles.smallTitle}>SERVIÇOS</p>
+            <Link href="/contato" className={styles.contactButton}><button>Entre em contato</button></Link>
+          </div>
           <div className={styles.internText}>
             <span className={styles.title}><PrismicRichText field={title} /></span>
             <span className={styles.description}><PrismicRichText field={description} /></span>
@@ -23,7 +26,7 @@ export default function HeroServices({title, description, slices}: {title: Title
             return e.slice_type == 'services_slices';
           })} components={components} />
         </ul>
-        <Link href="/contato" className={styles.buttonWrapper}><button>Entre em Contato</button></Link>
+        <Link href="/contato" className={styles.mobileContactButton}><button>Entre em contato</button></Link>
       </div>
     </section>
   );

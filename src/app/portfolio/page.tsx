@@ -23,14 +23,15 @@ export default async function Page() {
     <main>
       <div className={styles.portfolioPage}>
         <div className={styles.pageContent}>
-
-          <PortfolioIntro
-            title={page.data.pageTitle}
-            description={page.data.pageDescription}
+          <PortfolioListing 
+            intro={
+              <PortfolioIntro
+                title={page.data.pageTitle}
+                description={page.data.pageDescription}
+              />
+            }
+            portfolioPosts={portfolioPosts} 
           />
-
-          <PortfolioListing portfolioPosts={portfolioPosts} />
-
         </div>
       </div>
       <StatementPorfolio title={page.data.statementTitle} description={page.data.statementDescription} statementCallToAction={page.data.statementCallToAction} slices={page.data.slices} />

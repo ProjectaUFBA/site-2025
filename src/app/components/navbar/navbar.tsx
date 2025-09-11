@@ -14,23 +14,23 @@ export default function Navbar() {
     const [hash, setHash] = useState("/");
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        if (pathname == "/") {
-            const updatePageWidth = () => {
-                const pageWidth = window.innerWidth;
-                if (pageWidth > 1050) { 
-                    setIsMenuOpen(false);
-                }
+        const handleResize = () => {
+            const mobile = window.innerWidth <= 1150;
+            setIsMobile(mobile);
+            if (!mobile) {
+                setIsMenuOpen(false);
             }
+        };
 
-            window.addEventListener('resize', updatePageWidth);
-            return () => {
-            window.removeEventListener('resize', updatePageWidth);
-            }
-
-    }
-    }, [pathname]);
+        handleResize(); // Set initial state
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     useEffect(() => {
         if(pathname == "/"){
@@ -49,14 +49,23 @@ export default function Navbar() {
         }
     }, [pathname]);
 
+    const isBgActive = pathname !== "/" || scrolled || isMenuOpen;
+
     return (
         <div>
-            <header className={pathname == "/" && !isMenuOpen ? scrolled ? `${styles.navbarWrapper} ${styles.backgroundActive}` : 
-        `${styles.navbarWrapper} ${styles.backgroundInactive}` : `${styles.navbarWrapper} ${styles.backgroundActive}`}>
+            <header className={`${styles.navbarWrapper} ${isBgActive ? styles.backgroundActive : styles.backgroundInactive}`}>
             <section className={styles.internWrapper}>
+                <div className={styles.hamburgerIcon} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                    {isMenuOpen
+                        ? <Image src="/closeIcon.svg" alt="Close Icon" width={20} height={20} />
+                        : (isBgActive || isMobile)
+                            ? <Image src="/hamburgerDark.svg" alt="Menu" width={25} height={20} />
+                            : <Image src="/hamburger.svg" alt="Menu" width={25} height={20} />
+                    }
+                </div>
                 <div className={styles.navbarLeft}>
                     <Link className={styles.controlImg} href={"/"}>
-                        <NavbarImage state={scrolled} pathname={pathname} isMenuOpen={isMenuOpen}/>
+                        <NavbarImage state={scrolled || isMobile} pathname={pathname} isMenuOpen={isMenuOpen}/>
                     </Link>
                     <ul className={pathname == "/" ? scrolled ? styles.navbarList : styles.navbarListInactive : styles.navbarList}>
                         <li className={pathname == "/" && hash != "#quem-somos" ? styles.listActive : styles.listInactive}>
@@ -101,16 +110,10 @@ export default function Navbar() {
                         </li>
                     </ul>
                 </div>
-                <Link className="button" href="/contato" onClick={() => setIsMenuOpen(false)}><button>Entrar em Contato</button></Link>
-                <div className={styles.hamburgerIcon}>
-                    {(pathname == "/" && (!isMenuOpen && !scrolled)) && <Image src="/hamburger.svg" alt="Menu" width={25} height={20} onClick={() => setIsMenuOpen(true)} />}
-                    { (pathname != "/" ? (!isMenuOpen) : (!isMenuOpen && scrolled)) && <Image src="/hamburgerDark.svg" alt="Menu" width={25} height={20} onClick={() => setIsMenuOpen(true)} />}
-                    {isMenuOpen && <Image src="/closeIcon.svg" alt="Close Icon" width={20} height={20} onClick={() => setIsMenuOpen(false)} />}         
-                </div>
+                <Link className={styles.contactButton} href="/contato" onClick={() => setIsMenuOpen(false)}><button>Entrar em Contato</button></Link>
             </section>
         </header>
         {isMenuOpen && <MenuMobile pathname={pathname} hash={hash} setHash={setHash} setIsMenuOpen={setIsMenuOpen}/>}
         </div>
     );
-
 }

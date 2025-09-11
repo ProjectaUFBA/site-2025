@@ -53,11 +53,11 @@ export default function MenuMobile({pathname, hash, setHash, setIsMenuOpen}:{pat
               Materiais</Link>
               <div className={styles.line}/>
           </li>
-          <li onClick={() => setIsMenuOpen(false)} className={pathname == "/blog" ? styles.optionSelected : styles.optionNotSelected}>
+          <li onClick={() => setIsMenuOpen(false)} className={pathname?.includes("/blog") ? styles.optionSelected : styles.optionNotSelected}>
               <Link href="/blog">
               Blog</Link>
               <div className={styles.line}/>
-          </li> 
+          </li>
       </ul>
       <div className={styles.bottomEmail}>
         <div className={styles.bottomEmailText}>

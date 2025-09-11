@@ -2,16 +2,18 @@
 .wrapperSquare {
   width: 100%;
   min-height: 290px;
-  padding: 1.5rem;
+  padding: var(--spacing-600);
   box-sizing: border-box;
 
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  gap: var(--spacing-400);
 
   background-color: var(--white-color);
-  box-shadow: 0px 4px 4px 0px #0000000D;
-
+  border: 1px solid var(--grey-200);
+  border-radius: 8px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
 
   .wrapperIcon{
     width: 56px;
@@ -24,26 +26,35 @@
     border-radius: 8px;
   
     background-color: var(--yellow-color);
+
+    img {
+      width: 32px;
+      height: 32px;
+    }
   }
+
   .internSquare{
     display: flex;
     flex-direction: column;
     gap: var(--spacing-150);
-  }
-  h4{
-    @include medium-2xl;
-    color: var(--black-font-color);
-  }
-  p{
-    @include regular-xl;
-    color: var(--grey-font-color);
-  }
+    width: 90%;
 
+    h4{
+      @include regular-3xl;
+      font-weight: var(--font-weight-medium);
+      color: var(--dark-yellow-font-color);
+    }
+    p{
+      @include regular-xl;
+      color: var(--grey-font-color);
+    }
+  }
 }
+
 @media screen and (max-width: 1280px){
   .wrapperSquare {
     min-height: 200px;
-    padding: 1rem;
+    padding: var(--spacing-400);
   
     .wrapperIcon{
       width: 46px;
@@ -53,27 +64,27 @@
       img{
         width: 24px;
         height: 24px;
-      
       }
     }
+
     .internSquare{
-      display: flex;
-      flex-direction: column;
-      gap: 0;
+      width: 100%;
+      gap: var(--spacing-200);
+
+      h4{
+        @include regular-2xl;
+      }
+      p{
+        @include regular-lg;
+      }
     }
-    h4{
-      @include medium-xl;
-    }
-    p{
-      @include regular-lg;
-    }
-  
   }
 }
+
 @media screen and (max-width: 768px){
   .wrapperSquare {
     min-height: 150px;
-    padding: .5rem;
+    padding: var(--spacing-400);
   
     .wrapperIcon{
       width: 40px;
@@ -83,20 +94,19 @@
       img{
         width: 20px;
         height: 20px;
-      
       }
     }
+
     .internSquare{
-      display: flex;
-      flex-direction: column;
-      gap: 0;
+      width: 100%;
+      gap: var(--spacing-200);
+
+      h4{
+        @include regular-xl;
+      }
+      p{
+        @include regular-md;
+      }
     }
-    h4{
-      @include medium-lg;
-    }
-    p{
-      @include regular-md;
-    }
-  
   }
 }

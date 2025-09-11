@@ -23,7 +23,7 @@ $fontInactiveColor: #5A5756;
     color: #fff;
 
     position: fixed;
-    z-index: 2;
+    z-index: 1000;
     .internWrapper{
         width: var(--page-wrapper);
         max-width: var(--max-width);
@@ -34,27 +34,6 @@ $fontInactiveColor: #5A5756;
 
         gap: var(--spacing-200);
 
-    }
-
-    button{
-        @include medium-lg();
-        
-        width: 200px;
-        height: 52px;
-        padding: var(--spacing-150) 24px var(--spacing-150) 24px;
-
-        background-color: var(--yellow-color);
-
-        color: black;
-        border: none;
-        border-radius: 5px;
-
-        cursor: pointer;
-        transition: 1s;
-        &:hover{
-            background-color: darken( #F4C116 ,7.5%);
-        
-        }
     }
 }
 
@@ -152,11 +131,49 @@ $fontInactiveColor: #5A5756;
     background-color: transparent !important;
     transition: .5s;
 }
+.contactButton {
+    button {
+        @include medium-lg();
+        
+        width: 200px;
+        height: 52px;
+        padding: var(--spacing-150) 24px var(--spacing-150) 24px;
+
+        background-color: var(--yellow-color);
+
+        color: black;
+        border: none;
+        border-radius: 5px;
+
+        cursor: pointer;
+        transition: 1s;
+        &:hover{
+            background-color: darken( #F4C116 ,7.5%);
+        
+        }
+    }
+}
 .hamburgerIcon{
     display: none;
 }
 
 @media (max-width: 1150px) {
+    .backgroundInactive {
+        background-color: #FEF9E6 !important;
+        border-bottom-color: transparent !important;
+    }
+
+    .contactButton {
+        display: flex;
+        
+        button {
+            @include medium-sm();
+            width: auto;
+            height: 36px;
+            padding: var(--spacing-100) var(--spacing-150);
+        }
+    }
+
     .navbarListSocialMedia{
         list-style: none;
         display: flex;
@@ -170,7 +187,7 @@ $fontInactiveColor: #5A5756;
         height: 100vh;
         top: 0px;
         position: fixed;
-        z-index: 3;
+        z-index: 1001;
 
         display: flex;
         justify-content: center;
@@ -178,7 +195,9 @@ $fontInactiveColor: #5A5756;
         background-color: var(--white-color);
     }
     .navbarLeft{
-        width: 55%;
+        width: auto;
+        flex-grow: 1;
+        justify-content: flex-start;
     }
     .listMobileWrapper{
         padding-top: 6rem;
@@ -212,30 +231,8 @@ $fontInactiveColor: #5A5756;
         align-items: center;
         justify-content: center;
         height: 4rem;
-        z-index: 4;
+        z-index: 1002;
     
-        
-    button {
-        @include medium-sm();
-        
-        width: 136;
-        height: 36px;
-        padding: var(--spacing-100) var(--spacing-150) var(--spacing-100) var(--spacing-150);
-
-        background-color: var(--yellow-color);
-
-        color: black;
-        border: none;
-        border-radius: 6px;
-
-        cursor: pointer;
-        transition: 1s;
-        &:hover{
-            background-color: darken( #F4C116 ,7.5%);
-        
-        }
-    
-        }
         .controlImg{
             height: 6.5rem;
             display: flex;

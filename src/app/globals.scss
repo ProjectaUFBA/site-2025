@@ -53,7 +53,7 @@
   --light-orange-font-color: #FCDBB7;
   --orange-font-color: #DC7C14;
   --dark-orange-font-color: #C36E12;
-  --dark-yellow-font-color: #DCAE14;
+  --dark-yellow-font-color: #B79111;
   --grey-font-color: #5A5756;
   --white-font-color: #FAFAFA;
   --other-white-font-color: #FEF9E8;
@@ -68,6 +68,14 @@
   --dark-grey-color: #2D2C2C;
   --orange-second-color: #F48A16;
   --orange-gradient: linear-gradient(90deg, #F4C116 0%, #F48A16 100%);
+  
+  /* Additional colors for theme consistency */
+  --light-grey-color: #F8FAFC;
+  --medium-grey-color: #F0F0F0;
+  --border-grey-color: #D7D5D5;
+  --light-yellow-background: #FDF6DC;
+  --light-yellow-hover: rgba(253, 246, 220, 0.5);
+  --light-yellow-hover-card: rgba(253, 246, 220, 0.3);
 
   /*Widths and Sizes*/
   --padding-wrap: 4rem 0rem;

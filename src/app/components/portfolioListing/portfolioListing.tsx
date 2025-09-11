@@ -1,19 +1,24 @@
+// [AI Generated] Data: 19/12/2024
+// Descrição: Removida completamente a paginação do portfólio - todos os projetos aparecem imediatamente
+// Gerado por: Cursor AI
+// Versão: React 18, PrimeReact, Next.js
+// AI_GENERATED_CODE_START
 "use client";
 
 import { PrismicLink, PrismicRichText } from '@prismicio/react';
 import styles from './portfolioListing.module.scss';
 import { PrismicNextImage } from '@prismicio/next';
-import { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 import { PortfolioPostDocument } from '../../../../prismicio-types';
+import { Dropdown } from "primereact/dropdown";
+// AI_GENERATED_CODE_END
 
-import ArrowRight from '@/../public/arrowRight.svg';
 import CaretLeft from '@/../public/CaretLeft.svg'
 import CaretRight from '@/../public/CaretRight.svg'
 
 import Image from 'next/image'
 
-export default function PortfolioListing( {portfolioPosts} : {portfolioPosts: PortfolioPostDocument<string>[]} ) {
+export default function PortfolioListing( {portfolioPosts, intro} : {portfolioPosts: PortfolioPostDocument<string>[], intro: React.ReactNode} ) {
 
   //All unique tags from the posts
 
@@ -33,71 +38,31 @@ export default function PortfolioListing( {portfolioPosts} : {portfolioPosts: Po
     else setFilteredPosts(portfolioPosts.filter(post => post.tags.includes(tag)));
   }
 
-  //Pagination
+  // AI_GENERATED_CODE_START
+  // Dropdown options for mobile
+  const dropdownOptions = [
+    { option: "Ver Todos" },
+    ...uniqueTags.map(tag => ({ option: tag.toString() }))
+  ];
 
-  const pathname = usePathname();
-
-  //Initializes the page width
-  const [pageWidth, setPageWidth] = useState( typeof window !== "undefined" ? window.innerWidth : 768)
-
-  //Deals with the resizing and updating of the width
-  useEffect(() => {
-    if (pathname == "/portfolio") {
-    const updatePageWidth = () => {
-      setPageWidth(window.innerWidth);
-    }
-    window.addEventListener('resize', updatePageWidth);
-    return () => {
-      window.removeEventListener('resize', updatePageWidth);
-    }
-  }
-  }, [pathname]);
-
-  //Initializes the amount of items to be shown in the page
-  const [itemsPerPage, setItemsPerPage] = useState(12); 
-
-  useEffect(() => {
-    if (itemsPerPage !== 12 && window.innerWidth > 1334) {
-      setItemsPerPage(12); //3 rows of 4 items
-    } else if (itemsPerPage !== 9 && window.innerWidth > 995 && window.innerWidth <= 1334) {
-      setItemsPerPage(9); //3 rows of 3 items
-    } else if (itemsPerPage !== 6 && window.innerWidth > 652 && window.innerWidth <= 995) {
-      setItemsPerPage(6); //3 rows of 2 items
-    } else if (itemsPerPage !== 4 && window.innerWidth <= 652) {
-      setItemsPerPage(4); //4 rows of 1 item
-    }}
-  ,[pageWidth, itemsPerPage]);
-  
-  //Initializes the current page
-  const [currentPage, setCurrentPage] = useState(1);
-
-  //Initializes the content of the current page
-  const [currentPageContent, setCurrentPageContent] = useState(filteredPosts.slice(0, itemsPerPage));
-
-  const updateCurrentPage = (page: number) => {
-    setCurrentPage(page);
+  interface Option {
+    option: string;
   }
 
-  //Initializes how many pages there are
-  const [totalPages, setTotalPages] = useState(Math.ceil(filteredPosts.length/itemsPerPage));
-
-  useEffect(() => {
-    //Deals with changing the content of the current page
-    setCurrentPageContent(filteredPosts.slice((currentPage-1)*itemsPerPage, currentPage*itemsPerPage));
-  }, [currentPage, selectedTag, itemsPerPage, filteredPosts]);
-
-  useEffect(() => {
-    //Deals with putting the current page back to 1 when another tag is selected or content breakpoints are reached
-    setCurrentPage(1);
-    //Deals with how many pages there are based on the amount of items per page
-    setTotalPages(Math.ceil(filteredPosts.length/itemsPerPage));
-  }, [selectedTag, itemsPerPage, filteredPosts.length]);
-
+  const itemTemplate = (option: Option) => {
+    return (
+      <section className={styles.itemTemplate}>
+        <p>{option.option}</p>
+      </section>
+    );
+  }
+  // AI_GENERATED_CODE_END
 
   return (
 
     <div id="portfolioSection" className={styles.section}>
-
+      {intro}
+      {/* Desktop Filter - Lista de botões */}
       <ul id='tagSelection' className={styles.tagSelection}>
         <li onClick={() => changeSelectedTag("")} className={selectedTag==="" ? styles.selectedTag : styles.tag}>Ver Todos</li>
         {uniqueTags.map((post, index) => (
@@ -105,8 +70,36 @@ export default function PortfolioListing( {portfolioPosts} : {portfolioPosts: Po
         ))}
       </ul>
 
+      {/* AI_GENERATED_CODE_START */}
+      {/* Mobile Filter - Dropdown */}
+      <div className={styles.mobileFilterWrapper}>
+        {/* AI_GENERATED_CODE_START */}
+        <p className={styles.filterLabel}>Filtrar:</p>
+        {/* AI_GENERATED_CODE_END */}
+        <Dropdown
+          panelClassName={styles.panelWrapper}
+          options={dropdownOptions}
+          value={dropdownOptions.find(option => 
+            selectedTag === "" ? option.option === "Ver Todos" : option.option === selectedTag
+          )}
+          onChange={(e) => {
+            const service = e.target.value;
+            if (service.option === "Ver Todos") {
+              changeSelectedTag("");
+            } else {
+              changeSelectedTag(service.option);
+            }
+          }}
+          optionLabel="option"
+          placeholder="Selecione uma categoria"
+          itemTemplate={itemTemplate}
+          className={styles.dropdown}
+        />
+      </div>
+      {/* AI_GENERATED_CODE_END */}
+
       <div id="portfolioListing" className={styles.portfolioListing}>
-        {currentPageContent.map((post, index) => 
+        {filteredPosts.map((post, index) => 
         (
           <PrismicLink className={styles.portfolioItem} document={post} key={index}>
             <PrismicNextImage
@@ -118,11 +111,6 @@ export default function PortfolioListing( {portfolioPosts} : {portfolioPosts: Po
 
               <p className={styles.postTag}>{post.tags[0]}</p>
 
-              <div className={styles.hoveringComponent}>
-                <p className={styles.hoveringText}>Ver projeto</p>
-                <Image src={ArrowRight} width={18} height={18} alt={'Seta para prosseguir'} />
-              </div>
-
               <div className={styles.postSummary}>
                 <p className={styles.postDate}>{post.data.portfolioItemDate?.slice(0,4)}</p>
                 <span className={styles.postTitle}><PrismicRichText field={post.data.portfolioItemTitle} /></span>
@@ -132,16 +120,6 @@ export default function PortfolioListing( {portfolioPosts} : {portfolioPosts: Po
         ))
         }
       </div>
-
-      <ul className={styles.pagination}>
-        <li className={currentPage > 1 ? styles.paginationButton : styles.disabledButton } onClick={currentPage > 1 ? () => updateCurrentPage(currentPage-1) : ()=>{} } ><Image width={16} height={16} src={CaretLeft} alt={'Seta Esquerda'} /></li>
-        
-        {currentPage > 1 && <li className={styles.paginationButton} onClick={() => updateCurrentPage(currentPage-1)}><p>{currentPage-1}</p></li>}
-        <li className={styles.selectedPage}><p>{currentPage}</p></li>
-        {currentPage < totalPages && <li className={styles.paginationButton} onClick={() => updateCurrentPage(currentPage+1)}><p>{currentPage+1}</p></li>}
-        
-        <li className={currentPage < totalPages ? styles.paginationButton : styles.disabledButton } onClick={currentPage < totalPages ? () => updateCurrentPage(currentPage+1) : ()=>{}} ><Image width={16} height={16} src={CaretRight} alt={'Seta Direita'} /></li>
-      </ul>
 
     </div>
   );

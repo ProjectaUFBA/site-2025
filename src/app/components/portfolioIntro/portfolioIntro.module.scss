@@ -1,31 +1,61 @@
+/* [AI Generated] Data: 19/12/2024 */
+/* Descrição: Correção de alinhamento respeitando layout da página e aumento do subtítulo */
+/* Gerado por: Cursor AI */
 @import "../../mixins";
 
+/* AI_GENERATED_CODE_START */
 .pageIntroduction {
-  width: 90%;
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--spacing-600);
-  text-align: center;
-  gap: var(--spacing-300);
+  margin-bottom: var(--spacing-400);
+  width: 100%;
+  text-align: left; // Alinhar cabeçalho à esquerda
+  align-items: flex-start; // Garantir que elementos filhos fiquem à esquerda
+/* AI_GENERATED_CODE_END */
 
   .sectionTitle {
-    @include medium-3xl();
+    /* AI_GENERATED_CODE_START */
+    @include medium-2xl(); // Voltado para medium-2xl para alinhamento natural
     color: var(--dark-yellow-font-color);
+    /* AI_GENERATED_CODE_END */
   }
 
   .prismicIntro {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-150);
+    gap: var(--spacing-100);
 
     .mainTitle * {
-      @include medium-5xl();
-      font-weight: 400;
+      @include medium-4xl();
+      font-weight: bold;
     }
 
     .subTitle * {
-      @include regular-2xl();
+      /* AI_GENERATED_CODE_START */
+      @include medium-2xl(); // Aumentado para medium-2xl e tornado negrito
+      /* AI_GENERATED_CODE_END */
       color: var(--grey-font-color);
     }
   }
 }
+
+/* AI_GENERATED_CODE_START */
+// Ajustes específicos para mobile
+@media (max-width: 700px) {
+  .pageIntroduction {
+    .sectionTitle {
+      @include medium-xl(); // Menor no mobile
+    }
+    
+    .prismicIntro {
+      .mainTitle * {
+        @include medium-xl(); // Menor no mobile
+      }
+      
+      .subTitle * {
+        @include medium-xl(); // Menor no mobile mas mantendo negrito
+      }
+    }
+  }
+}
+/* AI_GENERATED_CODE_END */

@@ -1,3 +1,6 @@
+// [AI Generated] Data: 19/12/2024
+// Descrição: Modificado layout dos depoimentos - removido imagem do autor, nome alinhado ao fundo, setas mobile removidas
+// Gerado por: Cursor AI
 'use client'
 
 import Image from 'next/image';
@@ -25,17 +28,7 @@ export default function StatementPorfolio({title, description, statementCallToAc
       slicesRef.current.scrollBy({ left: 489, behavior: 'smooth' });
     }
   };
-  const scrollLeftMobile = () => {
-    if (slicesRef.current) {
-      slicesRef.current.scrollBy({ left: -296, behavior: 'smooth' });
-    }
-  };
-
-  const scrollRightMobile = () => {
-    if (slicesRef.current) {
-      slicesRef.current.scrollBy({ left: 296, behavior: 'smooth' });
-    }
-  };
+  // Funções de scroll mobile removidas - não são mais necessárias
   return (
     <div className={styles.mainWrapper}>
       <section className={styles.wrapper}>
@@ -53,24 +46,23 @@ export default function StatementPorfolio({title, description, statementCallToAc
           <section className={styles.slices} ref={slicesRef}>
             {slices.map((post, index) => (
               <div key={index} className={styles.wrapperEachStatement}>
-                <Image src="/quotations.svg" alt='Quotes' width={19.5} height={14.25}/>
-                <span className={styles.descriptionStatement}><PrismicRichText field={post.primary.clientStatement as RichTextField}/></span>
-                <div className={styles.clientPhotoWrapper}>
-                  <PrismicNextImage field={post.primary.clientPhoto as ImageFieldImage}/>
-                  <div className={styles.titlePhotoWrapper}>
-                    <span className={styles.nameClient}><PrismicRichText field={post.primary.clientName as RichTextField}/></span>
-                    <span className={styles.roleClient}><PrismicRichText field={post.primary.clientRole as RichTextField}/></span>
-                  </div>
+                <div className={styles.statementContent}>
+                  <Image src="/quotations.svg" alt='Quotes' width={19.5} height={14.25}/>
+                  <span className={styles.descriptionStatement}><PrismicRichText field={post.primary.clientStatement as RichTextField}/></span>
                 </div>
+                {/* AI_GENERATED_CODE_START */}
+                <div className={styles.clientInfoWrapper}>
+                  <span className={styles.nameClient}><PrismicRichText field={post.primary.clientName as RichTextField}/></span>
+                </div>
+                {/* AI_GENERATED_CODE_END */}
               </div>
           ))
           }
           </section>
         </div>
-        <div className={styles.paginationWrapperMobile}>
-          <Image onClick={() => scrollLeftMobile()} src="/arrowPortfolioScreen.svg" alt='Left' width={56} height={56}/>
-          <Image onClick={() => scrollRightMobile()} className={styles.rightArrow} src="/arrowPortfolioScreen.svg" alt='Right' width={56} height={56}/>
-        </div>
+        {/* AI_GENERATED_CODE_START */}
+        {/* Setas removidas para mobile - usuário pode scrollar com o dedo */}
+        {/* AI_GENERATED_CODE_END */}
         <Link href={"/contato"} className={styles.contact}>
           <PrismicRichText field={statementCallToAction} />
           <div>

@@ -1,0 +1,67 @@
+@import '../../app/mixins';
+
+// [AI Generated] Data: 05/01/2025
+// Descrição: Ajustes no card de arquiteto para aproximar ao design do Figma - aumento das fontes, redução de line-height e reposicionamento do ícone
+// Gerado por: Cursor AI
+// AI_GENERATED_CODE_START
+
+.architectCard {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-300);
+  padding: var(--spacing-300);
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background-color: var(--white-color);
+  width: 100%;
+  position: relative;
+
+  &:hover {
+    border-color: var(--yellow-color);
+    box-shadow: 0 0 11px rgba(251, 188, 5, 0.2);
+  }
+
+  .architectImage {
+    img {
+      border-radius: 8px;
+      object-fit: cover;
+    }
+  }
+
+  .architectInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .name {
+        h3 {
+            @include medium-2xl;
+            color: var(--black-font-color);
+            margin-bottom: 10px;
+        }
+    }
+
+    .description {
+        p {
+            @include regular-md;
+            color: var(--grey-font-color);
+            margin: 4px 0 0 0;
+            line-height: 1.1;
+        }
+    }
+  }
+
+  .arrowIcon {
+    position: absolute;
+    top: var(--spacing-300);
+    right: var(--spacing-300);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+}
+// AI_GENERATED_CODE_END 

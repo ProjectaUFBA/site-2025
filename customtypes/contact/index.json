@@ -6,13 +6,31 @@
   "status": true,
   "json": {
     "Main": {
+      "pageTitlePrefix": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Texto Branco do Título (Início)",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading1"
+        }
+      },
       "pageTitle": {
         "type": "StructuredText",
         "config": {
-          "label": "Título da Página",
+          "label": "Texto Amarelo do Título (meio)",
           "placeholder": "Título da Página",
           "allowTargetBlank": false,
           "single": "heading1"
+        }
+      },
+      "pageTitleSufix": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Texto Branco do Título (final)",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading1"
         }
       },
       "pageDescription": {

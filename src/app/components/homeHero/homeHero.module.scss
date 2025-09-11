@@ -2,20 +2,64 @@
 
 .homeWrapper{
   width: 100%;
-  height:calc(768px - 6rem);
-  padding: var(--padding-wrap);
+  height: 768px;
   display: flex;
   align-items: center;
+  position: relative;
+  padding: var(--padding-wrap);
+  box-sizing: border-box;
+
+  // [AI Generated] Data: 19/12/2024
+  // Descrição: Layout responsivo - desktop com imagens estáticas, mobile com animação
+  // Gerado por: Cursor AI
+  // Versão: SCSS
+  // AI_GENERATED_CODE_START
+  
+  // Imagens estáticas para desktop (layout original)
+  .staticImages {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    display: flex;
+
+    .imageWrapper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  // Animação mobile (escondida no desktop)
+  .mobileAnimation {
+    display: none;
+  }
+
+  // Conteúdo principal
+  .content {
+    width: 100%;
+    z-index: 1;
+  }
 
   .homeIntern{
     width: var(--page-wrapper);
     max-width: var(--max-width);
     margin: 0 auto;
-
     display: flex;
     justify-content: center;
     flex-direction: column;
+    padding-top: 6rem; // Padding superior apenas no desktop
   }
+  // AI_GENERATED_CODE_END
+
   .wrapperInfos{
     width: 55%;
     display: flex;
@@ -38,8 +82,8 @@
     }
     .description{
       @include regular-3xl;
-    
     }
+
     .wrapperButton{
       display: flex;
       gap: var(--spacing-300);
@@ -47,54 +91,38 @@
       button{
         @include medium-lg;
         height: 60px;
-
         display: flex;
         align-items: center;
         justify-content: center;
         outline: none;
         border: none;
-
         border-radius: 6px;
         cursor: pointer;
         transition: 1s;
-
         color: var(--black-font-color);
       }
+
       .buttonContact{
         width: 200px;
-        padding: 16px 24px 16px 24px;
+        padding: 16px 24px;
         background-color: var(--yellow-color);
 
         &:hover{
           background-color: darken(#F4C116, 10%);
         }
-      
       }
+
       .buttonPortfolio{
         width: 180px;
-        padding: 16px 24px 16px 24px;
+        padding: 16px 24px;
         border: 1px solid var(--yellow-color);
-
         background-color: var(--white-color);
 
         &:hover{
           background-color: darken(#FFF, 10%);
         }
-      
       }
     }
-  }
-
-  .bg{
-    width: 100%;
-    height: 16%;
-    position: absolute;
-    top: -6rem;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    z-index: -1;
-    background-size: cover !important;
   }
 }
 
@@ -114,60 +142,87 @@
       }
       .description{
         @include regular-2xl;
-      
       }
-    }
-    .bg{
-      height: 12%;
-      top: -1rem;
     }
   }
 }
 
 @media screen and (max-width: 768px) {
   .homeWrapper{
-    height: 600px;
+    height: auto;
+    flex-direction: column;
+    padding: 0;
+    background-color: #FEF9E6;
+
+    // Esconder imagens estáticas no mobile
+    .staticImages {
+      display: none;
+    }
+
+    // Mostrar animação no mobile - primeiro elemento (abaixo da navbar)
+    .mobileAnimation {
+      display: block;
+      height: 280px;
+      margin: 1rem;
+      margin-top: 2rem;
+      overflow: hidden;
+      border-radius: 12px;
+      order: -1; // Garante que apareça primeiro
+    }
+
+    // Conteúdo separado das imagens
+    .content {
+      width: 100%;
+      padding: var(--spacing-400);
+      padding-top: var(--spacing-400); // Padding menor no mobile
+      background: transparent;
+      position: static;
+      z-index: 1;
+    }
+
+    .homeIntern {
+      width: 100%;
+      margin: 0;
+      padding-top: 0; // Remove o padding superior no mobile
+    }
 
     .wrapperInfos{
-      width: 80%;
-      gap: var(--spacing-300);
+      width: 100%;
+      gap: var(--spacing-400);
+      color: var(--black-font-color);
   
       .text{
-        gap: var(--spacing-150)
+        gap: var(--spacing-200);
       }
   
       h1{
         @include bold-4xl;
+        text-align: left;
       }
-      .description{
-        @include regular-xl;
       
+      .description{
+        @include regular-lg;
+        text-align: left;
       }
+
       .wrapperButton{
-        gap: var(--spacing-150);
+        gap: var(--spacing-200);
   
         button{
-          @include medium-sm;
-          height: 44px;
+          @include medium-lg;
+          height: 56px;
+          flex: 1;
         }
+
         .buttonContact{
-          width: 140px;
-          padding: var(--spacing-150);
+          width: auto;
         }
+
         .buttonPortfolio{
-          width: 125px;
-          padding: var(--spacing-150);
-  
-          &:hover{
-            background-color: darken(#FFF, 10%);
-          }
+          width: auto;
+          color: var(--black-font-color);
         }
       }
-    }
-    .bg{
-      height: 100vh;
-      top: -1rem;
-      object-fit: cover;
     }
   }
 }

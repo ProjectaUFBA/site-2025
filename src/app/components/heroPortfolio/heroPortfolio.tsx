@@ -47,8 +47,7 @@ export default function HeroPortfolio({title, description, portfolioPosts}: {tit
                 </section>
                 <div className={styles.imgPortfolio}>
                 <PrismicNextImage
-                  width={383}
-                  height={432}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   key={post.id}
                   field={post.data.portfolioItemMainPicture}
                   fallback={post.data.portfolioItemMainPicture.alt ?? ''}
@@ -56,8 +55,7 @@ export default function HeroPortfolio({title, description, portfolioPosts}: {tit
                 </div>
                 <div className={styles.imgPortfolioMobile}>
                 <PrismicNextImage
-                  width={312}
-                  height={350}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   key={post.id}
                   field={post.data.portfolioItemMainPicture}
                   fallback={post.data.portfolioItemMainPicture.alt ?? ''}

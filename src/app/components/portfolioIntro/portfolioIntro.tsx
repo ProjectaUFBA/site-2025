@@ -9,7 +9,7 @@ export default function PortfolioIntro({title, description}: {title: RichTextFie
       <h1 className={styles.sectionTitle}>PORTFÓLIO</h1>
       <div className={styles.prismicIntro}>
         <span className={styles.mainTitle}><PrismicRichText field={title} /></span>
-        <span className={styles.subTitle}><PrismicRichText field={description} /></span>
+        {/* <span className={styles.subTitle}><PrismicRichText field={description} /></span> */}
       </div>
     </div>
   );

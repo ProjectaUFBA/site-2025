@@ -55,7 +55,7 @@ export default function MaterialsModal({onClose, download}: {onClose: () => void
             {isFormSubmitted && <PrismicNextLink target="_blank" field={download}><button className={styles.submitButton}>Baixar</button></PrismicNextLink>}
           </div>
           {!isFormSubmitted &&
-          <form name="Form Materiais Ekthos" className={styles.formIntern} onSubmit={formik.handleSubmit}>
+          <form name="Form Materiais" className={styles.formIntern} onSubmit={formik.handleSubmit}>
             <script type="text/javascript" async src={`${apiKeyRd}`} ></script>
             <label>
                 <p>Nome</p>

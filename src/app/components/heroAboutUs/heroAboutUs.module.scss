@@ -49,12 +49,125 @@
     }
 
   }
+  .architectsSection {
+    width: 100%;
+    margin-top: var(--spacing-800);
+
+    h2 {
+      @include medium-3xl;
+      color: var(--black-font-color);
+      margin-bottom: var(--spacing-400);
+    }
+
+    .architectsList {
+      display: flex;
+      gap: var(--spacing-200);
+      flex-wrap: wrap;
+    }
+
+    .architectCard {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-300);
+      padding: var(--spacing-300);
+      border: 1px solid var(--grey-200);
+      border-radius: 6px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        border-color: var(--yellow-color);
+        box-shadow: 0 0 11px rgba(251, 188, 5, 0.2);
+      }
+
+      .architectImage {
+        img {
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+
+      .architectInfo {
+        flex: 1;
+
+        h3 {
+          @include medium-xl;
+          color: var(--black-font-color);
+          margin-bottom: var(--spacing-50);
+        }
+
+        .role {
+          @include regular-md;
+          color: var(--grey-font-color);
+          margin-bottom: var(--spacing-50);
+        }
+
+        .description {
+          @include regular-sm;
+          color: var(--grey-font-color);
+        }
+      }
+
+      .arrowIcon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .projectValuesSection {
+    width: 100%;
+    margin-top: var(--spacing-800);
+
+    h2 {
+      @include medium-3xl;
+      color: var(--black-font-color);
+      margin-bottom: var(--spacing-400);
+    }
+
+    .valuesList {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-400);
+    }
+
+    .valueCard {
+      padding: var(--spacing-300);
+      border: 1px solid var(--grey-200);
+      border-radius: 6px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        border-color: var(--yellow-color);
+        box-shadow: 0 0 11px rgba(251, 188, 5, 0.2);
+      }
+
+      .valueIcon {
+        margin-bottom: var(--spacing-200);
+      }
+
+      h3 {
+        @include medium-xl;
+        color: var(--black-font-color);
+        margin-bottom: var(--spacing-100);
+      }
+
+      p {
+        @include regular-md;
+        color: var(--grey-font-color);
+      }
+    }
+  }
+
   .aboutUsListing{
     width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-200);
 
-    display: flex;
-    justify-content: space-between;
-    gap: var(--spacing-300);
   }
 }
 @media screen and (max-width: 1280px){
@@ -71,6 +184,7 @@
       img{
         width:100%;
         height: 500px;
+        object-fit: cover;
       }
     }
     .textsWrapper{
@@ -92,12 +206,15 @@
       }
   
     }
-    .aboutUsListing{
+    .projectValuesSection {
+      .valuesList {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .aboutUsListing {
       padding-top: 1rem;
-      display: grid;
-      flex-direction: column;
       grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-200);
+      gap: var(--spacing-100);
     }
   }
 }
@@ -122,6 +239,7 @@
       img{
         width:100%;
         height: 400px;
+        object-fit: cover;
       }
     }
     .textsWrapper{
@@ -144,12 +262,20 @@
       }
   
     }
+    .architectsSection {
+      .architectsList {
+        flex-direction: column;
+      }
+
+      .architectCard {
+        min-width: 100%;
+      }
+    }
+
     .aboutUsListing{
       padding-top: 1rem;
-      display: grid;
-      flex-direction: column;
       grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-200);
+      gap: var(--spacing-100);
     }
   }
 }

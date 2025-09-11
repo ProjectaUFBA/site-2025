@@ -1,3 +1,6 @@
+/* [AI Generated] Data: 19/12/2024 */
+/* Descrição: Forçado alinhamento à esquerda em desktop e mobile, espaçamento reduzido */
+/* Gerado por: Cursor AI */
 @import '../mixins';
 
 .portfolioPage {
@@ -14,8 +17,25 @@
 .pageContent {
     width: 90%;
     display: flex;
-    padding-top: var(--spacing-1000);
+    /* AI_GENERATED_CODE_START */
+    padding-top: var(--spacing-800); // Reduzido de spacing-1000 para diminuir espaço com navbar
+    /* AI_GENERATED_CODE_END */
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+
+/* AI_GENERATED_CODE_START */
+// Mantém alinhamento natural da página (centralizado)
+.pageContent {
+    align-items: center; // Alinhamento natural centralizado
+}
+
+// Mantém margens equilibradas no mobile
+@media (max-width: 700px) {
+    .pageContent {
+        width: 95%; // Garante margens iguais
+        max-width: var(--max-width);
+    }
+}
+/* AI_GENERATED_CODE_END */

@@ -226,7 +226,18 @@ type ContactDocumentDataSlicesSlice = SocialMediaContactPageSlice;
  */
 interface ContactDocumentData {
   /**
-   * Título da Página field in *Contato*
+   * Texto Branco do Título (Início) field in *Contato*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.pageTitlePrefix
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  pageTitlePrefix: prismic.RichTextField;
+
+  /**
+   * Texto Amarelo do Título (meio) field in *Contato*
    *
    * - **Field Type**: Title
    * - **Placeholder**: Título da Página
@@ -235,6 +246,17 @@ interface ContactDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   pageTitle: prismic.TitleField;
+
+  /**
+   * Texto Branco do Título (final) field in *Contato*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.pageTitleSufix
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  pageTitleSufix: prismic.RichTextField;
 
   /**
    * Descrição da Página field in *Contato*
@@ -535,6 +557,8 @@ export type GlobalNavbarDocument<Lang extends string = string> =
   >;
 
 type HomeDocumentDataSlicesSlice =
+  | HeroAnimatedImageSlice
+  | AboutUsArchitectSlice
   | MetodologyCardsSlice
   | AboutUsItemSlice
   | ServicesSlicesSlice;
@@ -1257,35 +1281,110 @@ export type AllDocumentTypes =
   | ServicesDocument;
 
 /**
- * Primary content in *AboutUsItem → Primary*
+ * Primary content in *AboutUsArchitect → Items*
  */
-export interface AboutUsItemSliceDefaultPrimary {
+export interface AboutUsArchitectSliceDefaultItem {
   /**
-   * Ícone do Item de Quem Somos field in *AboutUsItem → Primary*
+   * Name field in *AboutUsArchitect → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us_architect.items[].name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name: prismic.RichTextField;
+
+  /**
+   * Description field in *AboutUsArchitect → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us_architect.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * URL field in *AboutUsArchitect → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us_architect.items[].url
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  url: prismic.LinkField;
+
+  /**
+   * image field in *AboutUsArchitect → Items*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: about_us_item.primary.aboutUsItemIcon
+   * - **API ID Path**: about_us_architect.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for AboutUsArchitect Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutUsArchitectSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<AboutUsArchitectSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *AboutUsArchitect*
+ */
+type AboutUsArchitectSliceVariation = AboutUsArchitectSliceDefault;
+
+/**
+ * AboutUsArchitect Shared Slice
+ *
+ * - **API ID**: `about_us_architect`
+ * - **Description**: AboutUsArchitect
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutUsArchitectSlice = prismic.SharedSlice<
+  "about_us_architect",
+  AboutUsArchitectSliceVariation
+>;
+
+/**
+ * Primary content in *AboutUsItem → Default → Primary*
+ */
+export interface AboutUsItemSliceDefaultPrimary {
+  /**
+   * Ícone do Item de Quem Somos field in *AboutUsItem → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us_item.default.primary.aboutUsItemIcon
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   aboutUsItemIcon: prismic.ImageField<never>;
 
   /**
-   * Título do Item de Quem Somos field in *AboutUsItem → Primary*
+   * Título do Item de Quem Somos field in *AboutUsItem → Default → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: Título do Item de Quem Somos
-   * - **API ID Path**: about_us_item.primary.aboutUsItemTitle
+   * - **API ID Path**: about_us_item.default.primary.aboutUsItemTitle
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   aboutUsItemTitle: prismic.TitleField;
 
   /**
-   * Descrição do Item de Quem Somos field in *AboutUsItem → Primary*
+   * Descrição do Item de Quem Somos field in *AboutUsItem → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: about_us_item.primary.aboutUsItemDescription
+   * - **API ID Path**: about_us_item.default.primary.aboutUsItemDescription
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   aboutUsItemDescription: prismic.RichTextField;
@@ -1322,25 +1421,25 @@ export type AboutUsItemSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *FaqQuestion → Primary*
+ * Primary content in *FaqQuestion → Default → Primary*
  */
 export interface FaqQuestionSliceDefaultPrimary {
   /**
-   * Título da Pergunta field in *FaqQuestion → Primary*
+   * Título da Pergunta field in *FaqQuestion → Default → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: Título da Pergunta
-   * - **API ID Path**: faq_question.primary.questionTitle
+   * - **API ID Path**: faq_question.default.primary.questionTitle
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   questionTitle: prismic.TitleField;
 
   /**
-   * Resposta da Pergunta field in *FaqQuestion → Primary*
+   * Resposta da Pergunta field in *FaqQuestion → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Resposta da Pergunta
-   * - **API ID Path**: faq_question.primary.questionAnswer
+   * - **API ID Path**: faq_question.default.primary.questionAnswer
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   questionAnswer: prismic.RichTextField;
@@ -1377,25 +1476,25 @@ export type FaqQuestionSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *SocialMedia → Primary*
+ * Primary content in *SocialMedia → Default → Primary*
  */
 export interface FooterLinkSliceDefaultPrimary {
   /**
-   * Imagem do Link field in *SocialMedia → Primary*
+   * Imagem do Link field in *SocialMedia → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: footer_link.primary.linkImage
+   * - **API ID Path**: footer_link.default.primary.linkImage
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   linkImage: prismic.ImageField<never>;
 
   /**
-   * Link para Redirecionamento field in *SocialMedia → Primary*
+   * Link para Redirecionamento field in *SocialMedia → Default → Primary*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: footer_link.primary.link
+   * - **API ID Path**: footer_link.default.primary.link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField;
@@ -1432,45 +1531,90 @@ export type FooterLinkSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *MaterialItem → Primary*
+ * Primary content in *HeroAnimatedImage → Items*
+ */
+export interface HeroAnimatedImageSliceDefaultItem {
+  /**
+   * Image field in *HeroAnimatedImage → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_animated_image.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for HeroAnimatedImage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroAnimatedImageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<HeroAnimatedImageSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *HeroAnimatedImage*
+ */
+type HeroAnimatedImageSliceVariation = HeroAnimatedImageSliceDefault;
+
+/**
+ * HeroAnimatedImage Shared Slice
+ *
+ * - **API ID**: `hero_animated_image`
+ * - **Description**: HeroAnimatedImage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroAnimatedImageSlice = prismic.SharedSlice<
+  "hero_animated_image",
+  HeroAnimatedImageSliceVariation
+>;
+
+/**
+ * Primary content in *MaterialItem → Default → Primary*
  */
 export interface MaterialItemSliceDefaultPrimary {
   /**
-   * Título do Material field in *MaterialItem → Primary*
+   * Título do Material field in *MaterialItem → Default → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: Título do Material
-   * - **API ID Path**: material_item.primary.materialTitle
+   * - **API ID Path**: material_item.default.primary.materialTitle
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   materialTitle: prismic.TitleField;
 
   /**
-   * Descrição do Material field in *MaterialItem → Primary*
+   * Descrição do Material field in *MaterialItem → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Descrição do Material
-   * - **API ID Path**: material_item.primary.materialDescription
+   * - **API ID Path**: material_item.default.primary.materialDescription
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   materialDescription: prismic.RichTextField;
 
   /**
-   * Imagem do Material field in *MaterialItem → Primary*
+   * Imagem do Material field in *MaterialItem → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: material_item.primary.materialImage
+   * - **API ID Path**: material_item.default.primary.materialImage
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   materialImage: prismic.ImageField<never>;
 
   /**
-   * Documento em si field in *MaterialItem → Primary*
+   * Documento em si field in *MaterialItem → Default → Primary*
    *
    * - **Field Type**: Link to Media
    * - **Placeholder**: *None*
-   * - **API ID Path**: material_item.primary.materialLink
+   * - **API ID Path**: material_item.default.primary.materialLink
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   materialLink: prismic.LinkToMediaField;
@@ -1507,45 +1651,45 @@ export type MaterialItemSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *MetodologyItem → Primary*
+ * Primary content in *MetodologyItem → Default → Primary*
  */
 export interface MetodologyCardsSliceDefaultPrimary {
   /**
-   * Imagem da Metodologia field in *MetodologyItem → Primary*
+   * Imagem da Metodologia field in *MetodologyItem → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: metodology_cards.primary.metodologyImage
+   * - **API ID Path**: metodology_cards.default.primary.metodologyImage
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   metodologyImage: prismic.ImageField<never>;
 
   /**
-   * Título da Metodologia field in *MetodologyItem → Primary*
+   * Título da Metodologia field in *MetodologyItem → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Título da Metodologia
-   * - **API ID Path**: metodology_cards.primary.metodologyTitle
+   * - **API ID Path**: metodology_cards.default.primary.metodologyTitle
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   metodologyTitle: prismic.RichTextField;
 
   /**
-   * Descrição da Metodologia Pequena field in *MetodologyItem → Primary*
+   * Descrição da Metodologia Pequena field in *MetodologyItem → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Descrição da Metodologia Pequena
-   * - **API ID Path**: metodology_cards.primary.metodologyDescriptionTiny
+   * - **API ID Path**: metodology_cards.default.primary.metodologyDescriptionTiny
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   metodologyDescriptionTiny: prismic.RichTextField;
 
   /**
-   * Descrição da Metodologia Longa field in *MetodologyItem → Primary*
+   * Descrição da Metodologia Longa field in *MetodologyItem → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Descrição da Metodologia Longa
-   * - **API ID Path**: metodology_cards.primary.metodologyDescriptionLong
+   * - **API ID Path**: metodology_cards.default.primary.metodologyDescriptionLong
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   metodologyDescriptionLong: prismic.RichTextField;
@@ -1582,55 +1726,55 @@ export type MetodologyCardsSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *PortfolioItemImage → Primary*
+ * Primary content in *PortfolioItemImage → Default → Primary*
  */
 export interface PortfolioItemImageSliceDefaultPrimary {
   /**
-   * Imagem do Item de Portfólio 1 field in *PortfolioItemImage → Primary*
+   * Imagem do Item de Portfólio 1 field in *PortfolioItemImage → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: portfolio_item_image.primary.portfolioItemImage1
+   * - **API ID Path**: portfolio_item_image.default.primary.portfolioItemImage1
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   portfolioItemImage1: prismic.ImageField<never>;
 
   /**
-   * Imagem do Item de Portfólio 2 field in *PortfolioItemImage → Primary*
+   * Imagem do Item de Portfólio 2 field in *PortfolioItemImage → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: portfolio_item_image.primary.portfolioItemImage2
+   * - **API ID Path**: portfolio_item_image.default.primary.portfolioItemImage2
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   portfolioItemImage2: prismic.ImageField<never>;
 
   /**
-   * Imagem do Item de Portfólio 3 field in *PortfolioItemImage → Primary*
+   * Imagem do Item de Portfólio 3 field in *PortfolioItemImage → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: portfolio_item_image.primary.portfolioItemImage3
+   * - **API ID Path**: portfolio_item_image.default.primary.portfolioItemImage3
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   portfolioItemImage3: prismic.ImageField<never>;
 
   /**
-   * Imagem do Item de Portfólio 4 field in *PortfolioItemImage → Primary*
+   * Imagem do Item de Portfólio 4 field in *PortfolioItemImage → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: portfolio_item_image.primary.portfolioItemImage4
+   * - **API ID Path**: portfolio_item_image.default.primary.portfolioItemImage4
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   portfolioItemImage4: prismic.ImageField<never>;
 
   /**
-   * Imagem do Item de Portfólio 5 field in *PortfolioItemImage → Primary*
+   * Imagem do Item de Portfólio 5 field in *PortfolioItemImage → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: portfolio_item_image.primary.portfolioItemImage5
+   * - **API ID Path**: portfolio_item_image.default.primary.portfolioItemImage5
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   portfolioItemImage5: prismic.ImageField<never>;
@@ -1667,35 +1811,35 @@ export type PortfolioItemImageSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *ServiceItemHighlight → Primary*
+ * Primary content in *ServiceItemHighlight → Default → Primary*
  */
 export interface ServiceItemHighlightSliceDefaultPrimary {
   /**
-   * Imagem do Serviço field in *ServiceItemHighlight → Primary*
+   * Imagem do Serviço field in *ServiceItemHighlight → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: service_item_highlight.primary.serviceImage
+   * - **API ID Path**: service_item_highlight.default.primary.serviceImage
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   serviceImage: prismic.ImageField<never>;
 
   /**
-   * Título do Serviço field in *ServiceItemHighlight → Primary*
+   * Título do Serviço field in *ServiceItemHighlight → Default → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: *None*
-   * - **API ID Path**: service_item_highlight.primary.serviceTitle
+   * - **API ID Path**: service_item_highlight.default.primary.serviceTitle
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   serviceTitle: prismic.TitleField;
 
   /**
-   * Descrição do Serviço Longa field in *ServiceItemHighlight → Primary*
+   * Descrição do Serviço Longa field in *ServiceItemHighlight → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Descrição do Serviço Longa
-   * - **API ID Path**: service_item_highlight.primary.serviceDescriptionLong
+   * - **API ID Path**: service_item_highlight.default.primary.serviceDescriptionLong
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   serviceDescriptionLong: prismic.RichTextField;
@@ -1732,35 +1876,35 @@ export type ServiceItemHighlightSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *ServiceItemHome → Primary*
+ * Primary content in *ServiceItemHome → Default → Primary*
  */
 export interface ServicesSlicesSliceDefaultPrimary {
   /**
-   * Ícone do Serviço field in *ServiceItemHome → Primary*
+   * Ícone do Serviço field in *ServiceItemHome → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: services_slices.primary.serviceIcon
+   * - **API ID Path**: services_slices.default.primary.serviceIcon
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   serviceIcon: prismic.ImageField<never>;
 
   /**
-   * Título do Serviço field in *ServiceItemHome → Primary*
+   * Título do Serviço field in *ServiceItemHome → Default → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: Título do Serviço
-   * - **API ID Path**: services_slices.primary.serviceTitle
+   * - **API ID Path**: services_slices.default.primary.serviceTitle
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   serviceTitle: prismic.TitleField;
 
   /**
-   * Descrição do Serviço Pequena field in *ServiceItemHome → Primary*
+   * Descrição do Serviço Pequena field in *ServiceItemHome → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Descrição do Serviço Pequena
-   * - **API ID Path**: services_slices.primary.serviceDescriptionTiny
+   * - **API ID Path**: services_slices.default.primary.serviceDescriptionTiny
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   serviceDescriptionTiny: prismic.RichTextField;
@@ -1797,35 +1941,35 @@ export type ServicesSlicesSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *SocialMediaContactPage → Primary*
+ * Primary content in *SocialMediaContactPage → Default → Primary*
  */
 export interface SocialMediaContactPageSliceDefaultPrimary {
   /**
-   * Imagem do Link (Normal) field in *SocialMediaContactPage → Primary*
+   * Imagem do Link (Normal) field in *SocialMediaContactPage → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: social_media_contact_page.primary.linkImageNormal
+   * - **API ID Path**: social_media_contact_page.default.primary.linkImageNormal
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   linkImageNormal: prismic.ImageField<never>;
 
   /**
-   * Imagem do Link (Hover) field in *SocialMediaContactPage → Primary*
+   * Imagem do Link (Hover) field in *SocialMediaContactPage → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: social_media_contact_page.primary.linkImageHover
+   * - **API ID Path**: social_media_contact_page.default.primary.linkImageHover
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   linkImageHover: prismic.ImageField<never>;
 
   /**
-   * Link para Redirecionamento field in *SocialMediaContactPage → Primary*
+   * Link para Redirecionamento field in *SocialMediaContactPage → Default → Primary*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: social_media_contact_page.primary.link
+   * - **API ID Path**: social_media_contact_page.default.primary.link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField;
@@ -1862,45 +2006,45 @@ export type SocialMediaContactPageSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *Statements → Primary*
+ * Primary content in *Statements → Default → Primary*
  */
 export interface StatementsSliceDefaultPrimary {
   /**
-   * Testemunho do Cliente field in *Statements → Primary*
+   * Testemunho do Cliente field in *Statements → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Testemunho do Cliente
-   * - **API ID Path**: statements.primary.clientStatement
+   * - **API ID Path**: statements.default.primary.clientStatement
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   clientStatement: prismic.RichTextField;
 
   /**
-   * Foto do Cliente field in *Statements → Primary*
+   * Foto do Cliente field in *Statements → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: statements.primary.clientPhoto
+   * - **API ID Path**: statements.default.primary.clientPhoto
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   clientPhoto: prismic.ImageField<never>;
 
   /**
-   * Nome do Cliente field in *Statements → Primary*
+   * Nome do Cliente field in *Statements → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Nome do Cliente
-   * - **API ID Path**: statements.primary.clientName
+   * - **API ID Path**: statements.default.primary.clientName
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   clientName: prismic.RichTextField;
 
   /**
-   * Papel do Cliente field in *Statements → Primary*
+   * Papel do Cliente field in *Statements → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Papel do Cliente
-   * - **API ID Path**: statements.primary.clientRole
+   * - **API ID Path**: statements.default.primary.clientRole
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   clientRole: prismic.RichTextField;
@@ -1944,6 +2088,17 @@ declare module "@prismicio/client" {
     ): prismic.Client<AllDocumentTypes>;
   }
 
+  interface CreateWriteClient {
+    (
+      repositoryNameOrEndpoint: string,
+      options: prismic.WriteClientConfig,
+    ): prismic.WriteClient<AllDocumentTypes>;
+  }
+
+  interface CreateMigration {
+    (): prismic.Migration<AllDocumentTypes>;
+  }
+
   namespace Content {
     export type {
       BlogDocument,
@@ -1980,6 +2135,10 @@ declare module "@prismicio/client" {
       ServicesDocumentData,
       ServicesDocumentDataSlicesSlice,
       AllDocumentTypes,
+      AboutUsArchitectSlice,
+      AboutUsArchitectSliceDefaultItem,
+      AboutUsArchitectSliceVariation,
+      AboutUsArchitectSliceDefault,
       AboutUsItemSlice,
       AboutUsItemSliceDefaultPrimary,
       AboutUsItemSliceVariation,
@@ -1992,6 +2151,10 @@ declare module "@prismicio/client" {
       FooterLinkSliceDefaultPrimary,
       FooterLinkSliceVariation,
       FooterLinkSliceDefault,
+      HeroAnimatedImageSlice,
+      HeroAnimatedImageSliceDefaultItem,
+      HeroAnimatedImageSliceVariation,
+      HeroAnimatedImageSliceDefault,
       MaterialItemSlice,
       MaterialItemSliceDefaultPrimary,
       MaterialItemSliceVariation,

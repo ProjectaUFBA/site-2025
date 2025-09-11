@@ -1,6 +1,7 @@
 "use client"
 
 import { PrismicRichText, SliceZone } from "@prismicio/react";
+import { PrismicNextImage } from "@prismicio/next";
 
 import { components } from "@/slices";
 
@@ -11,11 +12,20 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import * as yup from "yup";
 
 import styles from "./contactComponent.module.scss";
-import { ContactDocumentData } from "../../../../prismicio-types";
+import { ContactDocumentData, ServiceItemHighlightSlice } from "../../../../prismicio-types";
+import { ImageField } from "@prismicio/client";
 import Image from "next/image";
 import { useState } from "react";
 
-export default function ContactComponent({ page }: { page: ContactDocumentData}) {
+export default function ContactComponent({ 
+  page, 
+  heroImage, 
+  servicesData 
+}: { 
+  page: ContactDocumentData, 
+  heroImage: ImageField,
+  servicesData: ServiceItemHighlightSlice[]
+}) {
 
   const [success, setSuccess] = useState(false);
 
@@ -70,30 +80,62 @@ export default function ContactComponent({ page }: { page: ContactDocumentData})
     );
   }
 
-  const options = [
-    { option: "Design de Interiores" },
-    { option: "Reforma e Aplicação" },
-    { option: "Levantamento Cadastral" },
-    { option: "Levantamento Qualitativo de Materiais" },
-    { option: "Projeto Arquitetônico"},
-    { option: "Consultoria Arquitetônica"},
-  ];
+  // Função para extrair títulos dos serviços dos dados do Prismic
+  const extractServiceTitles = (servicesData: ServiceItemHighlightSlice[]) => {
+    return servicesData.map((service) => {
+      // Extrair o texto do título do campo RichText
+      const titleText = service.primary.serviceTitle
+        .map((block) => {
+          if (block.type === 'heading2' && 'text' in block) {
+            return block.text || '';
+          }
+          return '';
+        })
+        .join('')
+        .trim();
+      
+      return { option: titleText || 'Serviço sem título' };
+    }).filter(service => service.option !== 'Serviço sem título'); // Filtrar serviços sem título
+  };
+
+  const options = extractServiceTitles(servicesData);
 
   return (
     <main className={styles.contactWrapper}>
       <section className={styles.internWrapper}>
+        {/* [AI Generated] Data: 19/01/2025
+             Descrição: Adição da imagem do hero como background escurecido e borrado
+             Gerado por: Cursor AI
+             Versão: React 18, Next.js 14, TypeScript 5 */}
+        {/* AI_GENERATED_CODE_START */}
+        <div className={styles.backgroundImage}>
+          <PrismicNextImage 
+            className={styles.heroBackground} 
+            field={heroImage} 
+            fallback={heroImage.alt ?? "Background"} 
+          />
+        </div>
+        {/* AI_GENERATED_CODE_END */}
         <section className={styles.formWrapper}>
           <div className={styles.wrapperSocialTitle}>
             <div className={styles.titleDiv}>
-              <PrismicRichText field={page.pageTitle} />
+              <p className={styles.title}>
+                <PrismicRichText field={page.pageTitlePrefix} />
+                <span className={styles.titleYellow}>
+                  <PrismicRichText field={page.pageTitle} />
+                </span>
+                <PrismicRichText field={page.pageTitleSufix} />
+              </p>
+              <div className={styles.pageDescription}>
               <PrismicRichText field={page.pageDescription} />
+              </div>
               <div className={styles.socialMedia}>
                   <SliceZone slices={page.slices} components={components} />
               </div>
             </div>
           </div>
           <div className={styles.formDiv}>
-            <form name="Form Contato Ekthos" className={styles.contactForm} onSubmit={formik.handleSubmit}>
+            <form name="Form Contato" className={styles.contactForm} onSubmit={formik.handleSubmit}>
               <script type="text/javascript" async src={`${apiKeyRd}`} ></script>
               <label>
                   <p>Nome</p>
@@ -224,7 +266,7 @@ export default function ContactComponent({ page }: { page: ContactDocumentData})
       <section className={styles.internMapWrapper}>
           <section className={styles.mapWrapper}>
             <div className={styles.mapDiv}>
-          <LoadScript googleMapsApiKey={apiKey} >
+            <LoadScript googleMapsApiKey={apiKey} >
               <GoogleMap
                 mapContainerStyle={mapContainerStyle}
                 center={center}

@@ -157,6 +157,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "hero_animated_image": {
+              "type": "SharedSlice"
+            },
+            "about_us_architect": {
+              "type": "SharedSlice"
+            },
             "metodology_cards": {
               "type": "SharedSlice"
             },
