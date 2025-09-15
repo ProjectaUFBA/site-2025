@@ -119,13 +119,17 @@ export default function ContactComponent({
         <section className={styles.formWrapper}>
           <div className={styles.wrapperSocialTitle}>
             <div className={styles.titleDiv}>
-              <p className={styles.title}>
-                <PrismicRichText field={page.pageTitlePrefix} />
+              <h1 className={styles.title}>
+                <span className={styles.titlePrefix}>
+                  <PrismicRichText field={page.pageTitlePrefix} />
+                </span>
                 <span className={styles.titleYellow}>
                   <PrismicRichText field={page.pageTitle} />
                 </span>
-                <PrismicRichText field={page.pageTitleSufix} />
-              </p>
+                <span className={styles.titleSufix}>
+                  <PrismicRichText field={page.pageTitleSufix} />
+                </span>
+              </h1>
               <div className={styles.pageDescription}>
               <PrismicRichText field={page.pageDescription} />
               </div>
