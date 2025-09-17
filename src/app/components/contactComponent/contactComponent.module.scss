@@ -172,7 +172,7 @@
                     }
 
                     .title {
-                        @include bold-3xl;
+                        @include medium-4xl;
                         font-weight: 600 !important;
                         line-height: 1.1;
                         text-align: left;
@@ -518,7 +518,7 @@
                       gap: var(--spacing-150);
 
                       .title {
-                          @include bold-3xl;
+                          @include medium-2xl;
                           font-weight: 600 !important;
                           line-height: 1.1;
                           text-align: left;
